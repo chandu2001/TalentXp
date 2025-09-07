@@ -50,7 +50,7 @@ const Services = () => {
             return (
               <div
                 key={service.title}
-                className="bg-card rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 p-8 border hover:border-primary/50 group"
+                className="bg-card rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 p-8 border hover:border-primary/50 group transform hover:-translate-y-2"
               >
                 <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                   <Icon className="w-6 h-6" />

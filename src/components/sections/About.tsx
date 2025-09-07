@@ -5,7 +5,7 @@ import { Button } from '../ui/button';
 
 const StatCard = ({ icon: Icon, number, label }: { icon: React.ElementType, number: string, label: string }) => (
   <div className="text-center bg-card p-6 rounded-lg border">
-    <div className="flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-br from-violet-500/10 to-teal-500/10 text-violet-500 mx-auto mb-4">
+    <div className="flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 text-primary mx-auto mb-4">
       <Icon className="w-6 h-6" />
     </div>
     <div className="text-3xl font-bold text-foreground mb-2 font-headline">{number}</div>
@@ -14,8 +14,8 @@ const StatCard = ({ icon: Icon, number, label }: { icon: React.ElementType, numb
 );
 
 const ValueCard = ({ icon: Icon, title, children }: { icon: React.ElementType, title: string, children: React.ReactNode }) => (
-  <div className="bg-card p-6 rounded-lg border text-center transform hover:-translate-y-2 transition-transform duration-300">
-    <div className="inline-block bg-gradient-to-br from-violet-500 to-teal-400 text-primary-foreground p-4 rounded-full mb-4">
+  <div className="bg-card p-6 rounded-lg border text-center transform hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-lg">
+    <div className="inline-block bg-gradient-to-br from-primary to-accent text-primary-foreground p-4 rounded-full mb-4">
       <Icon className="w-7 h-7" />
     </div>
     <h4 className="text-xl font-semibold text-foreground mb-2 font-headline">{title}</h4>
@@ -26,11 +26,11 @@ const ValueCard = ({ icon: Icon, title, children }: { icon: React.ElementType, t
 const TimelineItem = ({ year, title, children }: { year: string, title: string, children: React.ReactNode }) => (
   <div className="relative pl-12">
      <div className="absolute left-0 top-1 h-full w-0.5 bg-border"></div>
-     <div className="absolute left-[-9px] top-1 flex items-center justify-center w-6 h-6 rounded-full bg-background border-2 border-violet-500">
-        <div className="w-2 h-2 rounded-full bg-violet-500"></div>
+     <div className="absolute left-[-9px] top-1 flex items-center justify-center w-6 h-6 rounded-full bg-background border-2 border-primary">
+        <div className="w-2 h-2 rounded-full bg-primary"></div>
     </div>
     <div className="pt-0.5">
-       <span className="text-sm font-semibold text-violet-500 font-headline mb-1 block">{year}</span>
+       <span className="text-sm font-semibold text-primary font-headline mb-1 block">{year}</span>
       <h4 className="text-xl font-semibold text-foreground font-headline mb-2">{title}</h4>
       <p className="text-muted-foreground">{children}</p>
     </div>
@@ -38,7 +38,7 @@ const TimelineItem = ({ year, title, children }: { year: string, title: string, 
 );
 
 const TeamMemberCard = ({ name, title, imageUrl, linkedinUrl }: { name: string, title: string, imageUrl: string, linkedinUrl: string }) => (
-    <div className="text-center bg-card p-6 rounded-lg border transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+    <div className="text-center bg-card p-6 rounded-lg border transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1">
         <div className="relative inline-block mb-4">
             <Image
                 src={imageUrl}
@@ -90,7 +90,7 @@ const About = () => {
             <div>
               <div className="relative">
                  <div className="absolute -inset-2">
-                    <div className="w-full h-full max-w-md mx-auto opacity-20 blur-lg bg-gradient-to-r from-violet-600 to-teal-500"></div>
+                    <div className="w-full h-full max-w-md mx-auto opacity-20 blur-lg bg-gradient-to-r from-primary to-accent"></div>
                 </div>
                 <Image
                   src="https://picsum.photos/500/400"

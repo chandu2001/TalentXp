@@ -10,14 +10,14 @@ type PageHeaderProps = {
 const PageHeader = ({ title, breadcrumb, description }: PageHeaderProps) => {
   return (
     <section className="relative py-24 md:py-32 bg-card border-b overflow-hidden">
-       <div className="absolute inset-0 bg-grid-slate-100/[0.6] bg-[bottom_1px_center] [mask-image:linear-gradient(to_bottom,transparent,white)]"></div>
+       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center animated-grid [mask-image:linear-gradient(to_bottom,transparent,white)]"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
         >
-          <p className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-teal-400 font-semibold mb-2 font-body">{breadcrumb}</p>
+          <p className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent font-semibold mb-2 font-body">{breadcrumb}</p>
           <h1 className="text-4xl md:text-5xl font-bold text-foreground font-headline">
             {title}
           </h1>

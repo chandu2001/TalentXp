@@ -38,7 +38,7 @@ const Careers = () => {
             <Card className="shadow-lg bg-card border">
               <CardHeader>
                 <CardTitle className="font-headline text-2xl flex items-center">
-                  <Sparkles className="w-6 h-6 mr-2 text-violet-500" />
+                  <Sparkles className="w-6 h-6 mr-2 text-primary" />
                   Content Generation Tool
                 </CardTitle>
               </CardHeader>
@@ -76,7 +76,7 @@ const Careers = () => {
                       className="mt-2"
                     />
                   </div>
-                  <Button type="submit" disabled={isLoading} className="w-full bg-gradient-to-r from-violet-600 to-teal-500 hover:from-violet-700 hover:to-teal-600">
+                  <Button type="submit" disabled={isLoading} className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90">
                     {isLoading ? (
                       <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -109,7 +109,7 @@ const Careers = () => {
                 <Card className="bg-card border">
                   <CardHeader>
                     <CardTitle className="font-headline flex items-center text-xl">
-                      <Briefcase className="w-5 h-5 mr-2 text-violet-500" /> Job Description
+                      <Briefcase className="w-5 h-5 mr-2 text-primary" /> Job Description
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -119,7 +119,7 @@ const Careers = () => {
                 <Card className="bg-card border">
                   <CardHeader>
                     <CardTitle className="font-headline flex items-center text-xl">
-                      <Feather className="w-5 h-5 mr-2 text-teal-400" /> Employee Story
+                      <Feather className="w-5 h-5 mr-2 text-accent" /> Employee Story
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -129,7 +129,7 @@ const Careers = () => {
                 <Card className="bg-card border">
                   <CardHeader>
                     <CardTitle className="font-headline flex items-center text-xl">
-                      <Building className="w-5 h-5 mr-2 text-violet-500" /> Culture Highlights
+                      <Building className="w-5 h-5 mr-2 text-primary" /> Culture Highlights
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
