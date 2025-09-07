@@ -31,25 +31,14 @@ const Careers = () => {
   };
 
   return (
-    <section id="careers" className="py-20 bg-white">
+    <section id="careers" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4 font-headline">
-            AI-Powered <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">Careers Content</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-body">
-            Use our generative AI to craft compelling job descriptions, employee stories, and culture highlights to attract top talent.
-          </p>
-        </div>
-
         <div className="grid lg:grid-cols-2 gap-12">
           <div>
-            <Card className="shadow-lg">
+            <Card className="shadow-lg bg-card border-white/10">
               <CardHeader>
                 <CardTitle className="font-headline text-2xl flex items-center">
-                  <Sparkles className="w-6 h-6 mr-2 text-blue-500" />
+                  <Sparkles className="w-6 h-6 mr-2 text-violet-400" />
                   Content Generation Tool
                 </CardTitle>
               </CardHeader>
@@ -87,7 +76,7 @@ const Careers = () => {
                       className="mt-2"
                     />
                   </div>
-                  <Button type="submit" disabled={isLoading} className="w-full bg-gradient-to-r from-blue-600 to-cyan-600">
+                  <Button type="submit" disabled={isLoading} className="w-full bg-gradient-to-r from-violet-600 to-teal-500 hover:from-violet-700 hover:to-teal-600">
                     {isLoading ? (
                       <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -109,7 +98,7 @@ const Careers = () => {
             className="space-y-6"
           >
             {isLoading && (
-               <div className="flex flex-col items-center justify-center h-full text-gray-500">
+               <div className="flex flex-col items-center justify-center h-full text-muted-foreground">
                 <Loader2 className="w-12 h-12 animate-spin mb-4" />
                 <p className="font-body">Generating content with AI...</p>
               </div>
@@ -117,43 +106,43 @@ const Careers = () => {
             
             {generatedContent && (
               <>
-                <Card>
+                <Card className="bg-card border-white/10">
                   <CardHeader>
                     <CardTitle className="font-headline flex items-center text-xl">
-                      <Briefcase className="w-5 h-5 mr-2 text-blue-500" /> Job Description
+                      <Briefcase className="w-5 h-5 mr-2 text-violet-400" /> Job Description
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-700 whitespace-pre-wrap font-body">{generatedContent.jobDescription}</p>
+                    <p className="text-muted-foreground whitespace-pre-wrap font-body">{generatedContent.jobDescription}</p>
                   </CardContent>
                 </Card>
-                <Card>
+                <Card className="bg-card border-white/10">
                   <CardHeader>
                     <CardTitle className="font-headline flex items-center text-xl">
-                      <Feather className="w-5 h-5 mr-2 text-green-500" /> Employee Story
+                      <Feather className="w-5 h-5 mr-2 text-teal-400" /> Employee Story
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-700 whitespace-pre-wrap font-body">{generatedContent.employeeStory}</p>
+                    <p className="text-muted-foreground whitespace-pre-wrap font-body">{generatedContent.employeeStory}</p>
                   </CardContent>
                 </Card>
-                <Card>
+                <Card className="bg-card border-white/10">
                   <CardHeader>
                     <CardTitle className="font-headline flex items-center text-xl">
-                      <Building className="w-5 h-5 mr-2 text-purple-500" /> Culture Highlights
+                      <Building className="w-5 h-5 mr-2 text-violet-400" /> Culture Highlights
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-700 whitespace-pre-wrap font-body">{generatedContent.companyCultureHighlights}</p>
+                    <p className="text-muted-foreground whitespace-pre-wrap font-body">{generatedContent.companyCultureHighlights}</p>
                   </CardContent>
                 </Card>
               </>
             )}
 
             {!generatedContent && !isLoading && (
-              <div className="flex flex-col items-center justify-center h-full text-center text-gray-500 bg-gray-50 rounded-lg p-8">
-                <Sparkles className="w-12 h-12 mb-4 text-gray-400" />
-                <h3 className="font-headline text-lg text-gray-700">AI-Generated Content Will Appear Here</h3>
+              <div className="flex flex-col items-center justify-center h-full text-center text-muted-foreground bg-card border border-dashed border-white/20 rounded-lg p-8">
+                <Sparkles className="w-12 h-12 mb-4 text-muted-foreground/50" />
+                <h3 className="font-headline text-lg text-foreground">AI-Generated Content Will Appear Here</h3>
                 <p className="font-body mt-2">Fill out the form and click "Generate Content" to see the magic happen!</p>
               </div>
             )}

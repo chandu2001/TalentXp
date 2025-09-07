@@ -2,8 +2,8 @@ import Image from 'next/image';
 import { Award, Zap, Shield, CheckCircle, Target, Lightbulb, Users, Milestone } from 'lucide-react';
 
 const StatCard = ({ icon: Icon, number, label }: { icon: React.ElementType, number: string, label: string }) => (
-  <div className="text-center bg-card p-6 rounded-lg border">
-    <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary mx-auto mb-4">
+  <div className="text-center bg-card p-6 rounded-lg border border-white/10">
+    <div className="flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-br from-violet-500/20 to-teal-500/20 text-violet-400 mx-auto mb-4">
       <Icon className="w-6 h-6" />
     </div>
     <div className="text-3xl font-bold text-foreground mb-2 font-headline">{number}</div>
@@ -12,8 +12,8 @@ const StatCard = ({ icon: Icon, number, label }: { icon: React.ElementType, numb
 );
 
 const ValueCard = ({ icon: Icon, title, children }: { icon: React.ElementType, title: string, children: React.ReactNode }) => (
-  <div className="bg-card p-6 rounded-lg border text-center">
-    <div className="inline-block bg-primary/10 text-primary p-3 rounded-full mb-4">
+  <div className="bg-card p-6 rounded-lg border border-white/10 text-center transform hover:-translate-y-2 transition-transform duration-300">
+    <div className="inline-block bg-gradient-to-br from-violet-500 to-teal-400 text-primary-foreground p-4 rounded-full mb-4">
       <Icon className="w-7 h-7" />
     </div>
     <h4 className="text-xl font-semibold text-foreground mb-2 font-headline">{title}</h4>
@@ -22,13 +22,13 @@ const ValueCard = ({ icon: Icon, title, children }: { icon: React.ElementType, t
 );
 
 const TimelineItem = ({ year, title, children }: { year: string, title: string, children: React.ReactNode }) => (
-  <div className="flex items-start">
-    <div className="flex-shrink-0">
-      <div className="flex items-center justify-center w-24 h-24 rounded-full bg-card border-2 border-primary/30">
-        <span className="text-2xl font-bold text-primary font-headline">{year}</span>
-      </div>
+  <div className="relative pl-12">
+     <div className="absolute left-0 top-1 h-full w-0.5 bg-border"></div>
+     <div className="absolute left-[-9px] top-1 flex items-center justify-center w-6 h-6 rounded-full bg-background border-2 border-violet-500">
+        <div className="w-2 h-2 rounded-full bg-violet-500"></div>
     </div>
-    <div className="ml-6 pt-1">
+    <div className="pt-0.5">
+       <span className="text-sm font-semibold text-violet-400 font-headline mb-1 block">{year}</span>
       <h4 className="text-xl font-semibold text-foreground font-headline mb-2">{title}</h4>
       <p className="text-muted-foreground">{children}</p>
     </div>
@@ -58,20 +58,25 @@ const About = () => {
               </p>
             </div>
             <div>
-              <Image
-                src="https://picsum.photos/500/400"
-                alt="Team discussing strategy"
-                width={500}
-                height={400}
-                data-ai-hint="team strategy"
-                className="rounded-xl shadow-lg w-full h-auto object-cover"
-              />
+              <div className="relative">
+                 <div className="absolute -inset-2">
+                    <div className="w-full h-full max-w-md mx-auto opacity-20 blur-lg bg-gradient-to-r from-violet-600 to-teal-500"></div>
+                </div>
+                <Image
+                  src="https://picsum.photos/500/400"
+                  alt="Team discussing strategy"
+                  width={500}
+                  height={400}
+                  data-ai-hint="team strategy"
+                  className="relative rounded-xl shadow-lg w-full h-auto object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-card border-y">
+      <section className="py-20 bg-card border-y border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4 font-headline">Our Values</h2>
@@ -115,7 +120,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-card border-y">
+      <section className="py-20 bg-card border-y border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat) => (
