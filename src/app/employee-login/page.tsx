@@ -30,10 +30,8 @@ export default function EmployeeLoginPage() {
     },
   });
 
-  const onSubmit = async (data: LoginFormValues) => {
+  const onSubmit = (data: LoginFormValues) => {
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
 
     if (data.email === 'employee@talentxp.com' && data.password === 'password123') {
       toast.success('Login successful! Redirecting...');
