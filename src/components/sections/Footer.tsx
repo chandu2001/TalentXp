@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Logo } from '../ui/Logo';
 
 const Footer = () => {
   const footerLinks = {
@@ -30,10 +31,8 @@ const Footer = () => {
         <div className="py-16">
           <div className="grid lg:grid-cols-12 gap-8">
             <div className="lg:col-span-4">
-              <Link href="/" className="flex items-center space-x-2 mb-4">
-                 <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shadow-md">
-                    <span className="text-primary-foreground font-bold text-lg font-headline">TX</span>
-                </div>
+               <Link href="/" className="flex items-center space-x-2 mb-4">
+                <Logo className="h-10 w-10" />
                 <span className="text-2xl font-bold font-headline text-foreground">TalentXp</span>
               </Link>
               <p className="text-muted-foreground mb-6 leading-relaxed text-sm">

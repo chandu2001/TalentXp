@@ -1,4 +1,3 @@
-// src/components/sections/Hero.tsx
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -66,7 +65,7 @@ const Hero = () => {
                 alt="AI and human collaboration dashboard"
                 width={1200}
                 height={600}
-                data-ai-hint="AI dashboard human"
+                data-ai-hint="AI neural network"
                 className="relative w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>

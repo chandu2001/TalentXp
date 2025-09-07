@@ -1,9 +1,9 @@
-import { Target, Lightbulb, Users } from 'lucide-react';
+import { ServiceIcon } from '../ui/ServiceIcon';
 
-const FeatureCard = ({ icon: Icon, title, children }: { icon: React.ElementType, title: string, children: React.ReactNode }) => (
+const FeatureCard = ({ icon, title, children }: { icon: React.ReactNode, title: string, children: React.ReactNode }) => (
   <div className="bg-card p-8 rounded-lg border transform hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-lg">
      <div className="flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 text-primary mb-6">
-      <Icon className="w-6 h-6" />
+      {icon}
     </div>
     <h3 className="text-xl font-semibold text-foreground mb-3 font-headline">
       {title}
@@ -27,13 +27,13 @@ const WhyChooseUs = () => {
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
-          <FeatureCard icon={Target} title="Bespoke Solutions">
+          <FeatureCard icon={<ServiceIcon variant="strategic" className="w-6 h-6" />} title="Bespoke Solutions">
             We don't believe in one-size-fits-all. Our AI-powered solutions are meticulously tailored to your unique business challenges and strategic goals.
           </FeatureCard>
-          <FeatureCard icon={Lightbulb} title="Expert Team">
+          <FeatureCard icon={<ServiceIcon variant="consulting" className="w-6 h-6" />} title="Expert Team">
             Our team consists of leading experts in AI, machine learning, and human resources, ensuring you get the best of both worlds to drive innovation.
           </FeatureCard>
-          <FeatureCard icon={Users} title="Ethical & Responsible AI">
+          <FeatureCard icon={<ServiceIcon variant="acquisition" className="w-6 h-6" />} title="Ethical & Responsible AI">
             We are committed to fairness, transparency, and accountability. Our AI is designed to reduce bias and create equitable opportunities for all.
           </FeatureCard>
         </div>

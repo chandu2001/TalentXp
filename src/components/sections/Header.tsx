@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import { Logo } from '../ui/Logo';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,9 +49,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-20">
           <Link href="/" className="flex-shrink-0">
             <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shadow-md">
-                <span className="text-primary-foreground font-bold text-lg font-headline">TX</span>
-              </div>
+              <Logo className="h-10 w-10" />
               <span className="text-2xl font-bold text-foreground font-headline">TalentXp</span>
             </div>
           </Link>

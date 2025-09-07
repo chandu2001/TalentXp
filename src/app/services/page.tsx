@@ -1,8 +1,8 @@
 import Services from '@/components/sections/Services';
 import PageHeader from '@/components/sections/PageHeader';
 import Image from 'next/image';
-import { BarChart3, Bot, BrainCircuit } from 'lucide-react';
 import AnimatedSection from '@/components/ui/AnimatedSection';
+import { ServiceIcon } from '@/components/ui/ServiceIcon';
 
 const ProcessStep = ({ number, title, description }: { number: string; title: string; description: string }) => (
   <div className="flex items-start space-x-4">
@@ -47,7 +47,7 @@ const OurProcess = () => (
         </div>
         <div className="group overflow-hidden rounded-lg shadow-xl">
           <Image
-            src="https://picsum.photos/600/500?grayscale"
+            src="https://picsum.photos/600/500"
             alt="Our Process"
             width={600}
             height={500}
@@ -79,15 +79,15 @@ const AnalyticsSection = () => (
           <p className="text-muted-foreground">Unlock the power of your data. Our AI-driven analytics solutions provide deep insights into your workforce, helping you make smarter, data-backed decisions to drive growth and efficiency.</p>
           <ul className="space-y-4">
             <li className="flex items-start space-x-3">
-              <BarChart3 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+              <ServiceIcon variant="analytics" className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
               <p className="text-muted-foreground"><strong className="text-foreground">Predictive Insights:</strong> Forecast talent needs, identify top performers, and predict turnover before it happens.</p>
             </li>
             <li className="flex items-start space-x-3">
-              <BrainCircuit className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+              <ServiceIcon variant="consulting" className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
               <p className="text-muted-foreground"><strong className="text-foreground">Performance Optimization:</strong> Analyze team performance to identify opportunities for improvement and skill development.</p>
             </li>
              <li className="flex items-start space-x-3">
-              <Bot className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+              <ServiceIcon variant="genai" className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
               <p className="text-muted-foreground"><strong className="text-foreground">Automated Reporting:</strong> Get customized, automated reports that deliver the most important metrics directly to you.</p>
             </li>
           </ul>

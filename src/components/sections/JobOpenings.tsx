@@ -1,7 +1,8 @@
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { MapPin, Briefcase, BrainCircuit, Zap, Users, Heart } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { MapPin, Briefcase } from 'lucide-react';
 import Link from 'next/link';
+import { ServiceIcon } from '../ui/ServiceIcon';
 
 const jobOpenings = [
   {
@@ -32,22 +33,22 @@ const jobOpenings = [
 
 const benefits = [
     {
-        icon: BrainCircuit,
+        icon: <ServiceIcon variant="genai" className="w-6 h-6" />,
         title: 'Innovative Projects',
         description: 'Work on cutting-edge AI that solves real-world problems for top-tier clients.'
     },
     {
-        icon: Zap,
+        icon: <ServiceIcon variant="training" className="w-6 h-6" />,
         title: 'Growth Opportunities',
         description: 'We invest in your professional development with continuous learning resources.'
     },
     {
-        icon: Users,
+        icon: <ServiceIcon variant="acquisition" className="w-6 h-6" />,
         title: 'Collaborative Culture',
         description: 'Join a diverse and inclusive team that values every voice and idea.'
     },
     {
-        icon: Heart,
+        icon: <ServiceIcon variant="analytics" className="w-6 h-6" />,
         title: 'Comprehensive Benefits',
         description: 'Enjoy competitive salary, health insurance, and flexible work arrangements.'
     }
@@ -106,18 +107,15 @@ const JobOpenings = () => {
                     </p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {benefits.map((benefit) => {
-                        const Icon = benefit.icon;
-                        return (
-                            <div key={benefit.title} className="text-center bg-card p-6 rounded-lg border">
-                                <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary mx-auto mb-4">
-                                    <Icon className="w-6 h-6" />
-                                </div>
-                                <h4 className="text-lg font-semibold text-foreground mb-2">{benefit.title}</h4>
-                                <p className="text-muted-foreground text-sm">{benefit.description}</p>
+                    {benefits.map((benefit) => (
+                        <div key={benefit.title} className="text-center bg-card p-6 rounded-lg border">
+                            <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary mx-auto mb-4">
+                                {benefit.icon}
                             </div>
-                        )
-                    })}
+                            <h4 className="text-lg font-semibold text-foreground mb-2">{benefit.title}</h4>
+                            <p className="text-muted-foreground text-sm">{benefit.description}</p>
+                        </div>
+                    ))}
                 </div>
              </div>
         </section>

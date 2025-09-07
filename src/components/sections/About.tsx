@@ -1,8 +1,10 @@
 import Image from 'next/image';
-import { Award, Zap, Shield, CheckCircle, Target, Lightbulb, Users, Linkedin } from 'lucide-react';
+import { Award, Zap, Shield, CheckCircle, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import AnimatedSection from '../ui/AnimatedSection';
+import { ServiceIcon } from '../ui/ServiceIcon';
+
 
 const StatCard = ({ icon: Icon, number, label }: { icon: React.ElementType, number: string, label: string }) => (
   <div className="text-center bg-card p-6 rounded-lg border">
@@ -14,10 +16,10 @@ const StatCard = ({ icon: Icon, number, label }: { icon: React.ElementType, numb
   </div>
 );
 
-const ValueCard = ({ icon: Icon, title, children }: { icon: React.ElementType, title: string, children: React.ReactNode }) => (
+const ValueCard = ({ icon, title, children }: { icon: React.ReactNode, title: string, children: React.ReactNode }) => (
   <div className="bg-card p-6 rounded-lg border text-center transform hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-lg">
     <div className="inline-block bg-gradient-to-br from-primary to-accent text-primary-foreground p-4 rounded-full mb-4">
-      <Icon className="w-7 h-7" />
+      {icon}
     </div>
     <h4 className="text-xl font-semibold text-foreground mb-2 font-headline">{title}</h4>
     <p className="text-muted-foreground font-body">{children}</p>
@@ -100,7 +102,7 @@ const About = () => {
                         alt="Team collaborating on a project"
                         width={500}
                         height={400}
-                        data-ai-hint="team collaboration"
+                        data-ai-hint="team expertise diversity"
                         className="relative w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
@@ -121,13 +123,13 @@ const About = () => {
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <ValueCard icon={Lightbulb} title="Innovation">
+              <ValueCard icon={<ServiceIcon variant="genai" className="w-7 h-7" />} title="Innovation">
                 We relentlessly pursue cutting-edge solutions that push the boundaries of what's possible in talent technology.
               </ValueCard>
-              <ValueCard icon={Users} title="Customer Centricity">
+              <ValueCard icon={<ServiceIcon variant="acquisition" className="w-7 h-7" />} title="Customer Centricity">
                 We build collaborative partnerships with our clients, acting as an extension of their team to achieve shared goals.
               </ValueCard>
-              <ValueCard icon={Target} title="Integrity">
+              <ValueCard icon={<ServiceIcon variant="strategic" className="w-7 h-7" />} title="Integrity">
                 We operate with transparency and ethical responsibility, ensuring our AI is fair, unbiased, and beneficial.
               </ValueCard>
             </div>

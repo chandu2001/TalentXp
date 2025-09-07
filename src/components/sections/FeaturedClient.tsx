@@ -28,7 +28,7 @@ const FeaturedClient = () => {
               alt="Team discussing project on a whiteboard"
               width={600}
               height={500}
-              data-ai-hint="team meeting whiteboard"
+              data-ai-hint="corporate office success"
               className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </div>
