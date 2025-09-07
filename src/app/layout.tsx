@@ -28,8 +28,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${poppins.variable} ${ptSans.variable} font-body antialiased`}>
+    <html lang="en" className="scroll-smooth dark">
+      <body className={`${poppins.variable} ${ptSans.variable} font-body antialiased bg-background`}>
         <Toaster />
         <Header />
         <main className="pt-20">{children}</main>

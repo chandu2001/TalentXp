@@ -1,21 +1,21 @@
 import Hero from '@/components/sections/Hero';
-import Services from '@/components/sections/Services';
-import CaseStudies from '@/components/sections/CaseStudies';
-import About from '@/components/sections/About';
+import WhyChooseUs from '@/components/sections/WhyChooseUs';
+import FeaturedClient from '@/components/sections/FeaturedClient';
 import AnimatedSection from '@/components/ui/AnimatedSection';
+import CTA from '@/components/sections/CTA';
 
 export default function Home() {
   return (
     <>
       <Hero />
       <AnimatedSection>
-        <Services />
+        <WhyChooseUs />
       </AnimatedSection>
       <AnimatedSection>
-        <CaseStudies />
+        <FeaturedClient />
       </AnimatedSection>
       <AnimatedSection>
-        <About />
+        <CTA />
       </AnimatedSection>
     </>
   );

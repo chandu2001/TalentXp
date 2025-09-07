@@ -15,7 +15,7 @@ const caseStudiesData = [
     industry: "Technology",
     challenge: "Reducing time-to-hire from 45 days to 18 days while improving candidate quality.",
     solution: "AI-powered candidate matching and automated screening system.",
-    image: { src: "https://picsum.photos/seed/corporate-office/800/600", hint: "corporate office" },
+    image: { src: "https://picsum.photos/seed/1/800/600", hint: "corporate office" },
     summary: "Implemented an AI-powered recruitment platform, reducing time-to-hire by 60% and increasing candidate quality score by 85% for a Fortune 500 tech giant."
   },
   {
@@ -25,7 +25,7 @@ const caseStudiesData = [
     industry: "Financial Services",
     challenge: "Scaling the team from 50 to over 200 employees in one year while maintaining cultural alignment.",
     solution: "Custom AI talent analytics and cultural fit assessment platform.",
-    image: { src: "https://picsum.photos/seed/startup-meeting/800/600", hint: "startup meeting" },
+    image: { src: "https://picsum.photos/seed/2/800/600", hint: "startup meeting" },
     summary: "Developed a custom AI talent analytics platform for a fintech startup, enabling a 4x team growth in one year with a 92% cultural fit accuracy."
   },
   {
@@ -35,7 +35,7 @@ const caseStudiesData = [
     industry: "Manufacturing",
     challenge: "Optimizing workforce performance and reducing turnover across 15+ global locations.",
     solution: "Comprehensive AI-driven workforce analytics and optimization platform.",
-    image: { src: "https://picsum.photos/seed/factory-technology/800/600", hint: "factory technology" },
+    image: { src: "https://picsum.photos/seed/3/800/600", hint: "factory technology" },
     summary: "Deployed a global workforce analytics solution for a manufacturing conglomerate, boosting operational efficiency by 45% and reducing employee turnover by 55%."
   }
 ];
@@ -56,42 +56,35 @@ const CaseStudies = () => {
   return (
     <section id="case-studies" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4 font-headline">
-            Success <span className="text-primary">Stories</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-body">
-            Real results from real clients. See how TalentXp has transformed talent management for leading organizations.
-          </p>
-        </div>
-
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {caseStudiesData.map((study) => (
-            <Card key={study.id} className="overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+            <Card key={study.id} className="overflow-hidden bg-card/50 hover:bg-card transition-colors duration-300 group">
+              <div className="overflow-hidden">
               <Image
                 src={study.image.src}
                 alt={study.title}
                 width={800}
                 height={600}
                 data-ai-hint={study.image.hint}
-                className="w-full h-48 object-cover"
+                className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
               />
+              </div>
               <CardContent className="p-6">
                 <Badge variant="secondary" className="mb-2">{study.industry}</Badge>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2 font-headline">
+                <h3 className="text-xl font-semibold text-foreground mb-2 font-headline">
                   {study.title}
                 </h3>
-                <p className="text-gray-600 font-body text-sm mb-4">{study.summary}</p>
-                 <div className="mt-4 p-4 bg-primary/10 rounded-lg border border-primary/20">
-                  <h4 className="font-semibold text-gray-900 mb-2 flex items-center text-sm">
+                <p className="text-muted-foreground font-body text-sm mb-4">{study.summary}</p>
+                 <div className="mt-4 p-4 bg-background rounded-lg border">
+                  <h4 className="font-semibold text-foreground mb-2 flex items-center text-sm">
                     <Sparkles className="w-4 h-4 mr-2 text-primary" />
                     AI-Generated Summary
                   </h4>
                   {summaries[study.id] && (
-                    <p className="text-gray-700 text-sm italic font-body">{summaries[study.id]}</p>
+                    <p className="text-primary/90 text-sm italic font-body">{summaries[study.id]}</p>
                   )}
                   {loading[study.id] && (
-                     <div className="flex items-center text-sm text-gray-500">
+                     <div className="flex items-center text-sm text-muted-foreground">
                         <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                         Generating...
                       </div>
