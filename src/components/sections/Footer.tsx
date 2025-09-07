@@ -25,7 +25,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-card text-foreground font-body border-t">
+    <footer className="bg-card text-card-foreground font-body border-t">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-16">
           <div className="grid lg:grid-cols-12 gap-8">
@@ -44,7 +44,7 @@ const Footer = () => {
             <div className="lg:col-span-5 grid grid-cols-3 gap-8">
               {Object.entries(footerLinks).map(([category, links]) => (
                 <div key={category}>
-                  <h4 className="font-semibold text-foreground mb-4 font-headline text-sm">{category}</h4>
+                  <h4 className="font-semibold text-foreground mb-4 font-headline text-sm uppercase tracking-wider">{category}</h4>
                   <ul className="space-y-3">
                     {links.map((link) => (
                       <li key={link.name}>
@@ -59,7 +59,7 @@ const Footer = () => {
             </div>
 
             <div className="lg:col-span-3">
-               <h4 className="font-semibold text-foreground mb-4 font-headline text-sm">Stay Updated</h4>
+               <h4 className="font-semibold text-foreground mb-4 font-headline text-sm uppercase tracking-wider">Stay Updated</h4>
                <p className="text-muted-foreground text-sm mb-4">Get the latest insights on AI and talent management.</p>
                <form className="flex space-x-2">
                 <Input type="email" placeholder="Enter your email" className="flex-1" aria-label="Email for newsletter"/>

@@ -8,7 +8,7 @@ import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="relative bg-secondary/50 pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden">
+    <section className="relative bg-background pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden">
       <div className="absolute inset-0 bg-[url('/grid-dark.svg')] bg-center animated-grid [mask-image:linear-gradient(to_bottom,transparent,white)]"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center">
@@ -38,7 +38,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Button asChild size="lg" className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground shadow-lg">
+            <Button asChild size="lg">
               <Link href="/services">
                 Explore Solutions <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
@@ -58,7 +58,7 @@ const Hero = () => {
         >
           <div className="relative">
             <div className="absolute -inset-2">
-                <div className="w-full h-full max-w-7xl mx-auto opacity-30 blur-lg bg-gradient-to-r from-primary to-accent"></div>
+                <div className="w-full h-full max-w-7xl mx-auto opacity-20 blur-lg bg-gradient-to-r from-primary to-accent"></div>
             </div>
             <Image
               src="https://picsum.photos/1200/600"

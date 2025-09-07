@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -67,12 +68,11 @@ const Header = () => {
           </nav>
 
           <div className="hidden md:flex">
-            <Link
-              href="/contact"
-              className="bg-primary text-primary-foreground px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors shadow-sm"
-            >
-              Contact Us
-            </Link>
+            <Button asChild>
+              <Link href="/contact">
+                Contact Us
+              </Link>
+            </Button>
           </div>
 
           <div className="md:hidden">
@@ -112,13 +112,16 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
-              <Link
-                href="/contact"
-                className="block mx-3 my-3 bg-primary text-primary-foreground px-4 py-3 rounded-lg font-medium text-center"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contact Us
-              </Link>
+              <div className="px-3 pt-2">
+                <Button asChild className="w-full">
+                    <Link
+                        href="/contact"
+                        onClick={() => setIsMenuOpen(false)}
+                    >
+                        Contact Us
+                    </Link>
+                </Button>
+              </div>
             </div>
           </motion.div>
         )}
