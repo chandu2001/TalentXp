@@ -26,7 +26,7 @@ const caseStudiesData = [
     challenge: "A rapidly growing fintech startup needed to scale its team from 50 to over 200 employees within a year. Their primary challenge was maintaining their unique company culture and ensuring that new hires were not only skilled but also aligned with their values of innovation and collaboration.",
     solution: "We developed and implemented a custom AI-driven cultural fit assessment tool. This platform analyzed candidate responses to situational questions and compared them against the company's core value profile, providing recruiters with a 'cultural alignment score' for each applicant.",
     results: "Enabled a 4x team growth in one year while maintaining a 92% employee retention rate. The cultural fit assessment tool achieved a 95% accuracy in predicting strong team integration. New hire engagement scores were 25% higher than the industry average.",
-    image: { src: "https://picsum.photos/seed/startup/800/600", hint: "startup office collaboration" },
+    image: { src: "https://picsum.photos/seed/startup-office/800/600", hint: "startup office collaboration" },
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const caseStudiesData = [
     challenge: "A global manufacturing conglomerate with over 15 locations worldwide faced challenges in workforce optimization and high employee turnover, which was impacting production efficiency. They lacked the tools to gain deep insights into performance and retention drivers across their diverse workforce.",
     solution: "We deployed a comprehensive, AI-driven workforce analytics platform that integrated data from their existing HRIS, payroll, and performance management systems. The platform provided predictive insights on turnover risk, identified key drivers of performance, and visualized operational efficiency metrics in real-time.",
     results: "Reduced employee turnover by 55% within the first 18 months, leading to significant cost savings. Boosted overall operational efficiency by 45% through data-driven staffing and development decisions. Provided leadership with actionable insights, improving strategic workforce planning.",
-    image: { src: "https://picsum.photos/seed/enterprise/800/600", hint: "enterprise operations hub" },
+    image: { src: "https://picsum.photos/seed/enterprise-ops/800/600", hint: "enterprise operations hub" },
   },
   {
     id: 4,
@@ -46,7 +46,7 @@ const caseStudiesData = [
     challenge: "A large hospital network needed to improve the accuracy and efficiency of hiring specialized medical staff, from nurses to surgeons. The high stakes of the roles required a rigorous vetting process that was slow and resource-intensive, causing delays in staffing critical positions.",
     solution: "We implemented an AI-powered credential verification and skill-matching system. The tool automatically cross-referenced candidate qualifications with role requirements and professional databases, flagging the most suitable candidates and reducing manual review time.",
     results: "Improved hiring accuracy for critical medical roles by 98%. Reduced credential verification time by 75%, allowing for faster onboarding of essential staff. Decreased administrative workload on HR by 50%, freeing them to focus on candidate engagement.",
-    image: { src: "https://picsum.photos/seed/healthcare/800/600", hint: "hospital interior" },
+    image: { src: "https://picsum.photos/seed/hospital/800/600", hint: "hospital interior" },
   }
 ];
 

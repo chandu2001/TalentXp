@@ -8,7 +8,7 @@ import { ServiceIcon } from '../ui/ServiceIcon';
 
 const StatCard = ({ icon: Icon, number, label }: { icon: React.ElementType, number: string, label: string }) => (
   <div className="text-center bg-card p-6 rounded-lg border">
-    <div className="flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 text-primary mx-auto mb-4">
+    <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary mx-auto mb-4">
       <Icon className="w-6 h-6" />
     </div>
     <div className="text-3xl font-bold text-foreground mb-2 font-headline">{number}</div>
@@ -17,8 +17,8 @@ const StatCard = ({ icon: Icon, number, label }: { icon: React.ElementType, numb
 );
 
 const ValueCard = ({ icon, title, children }: { icon: React.ReactNode, title: string, children: React.ReactNode }) => (
-  <div className="bg-card p-6 rounded-lg border text-center transform hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-lg">
-    <div className="inline-block bg-gradient-to-br from-primary to-accent text-primary-foreground p-4 rounded-full mb-4">
+  <div className="bg-card p-6 rounded-lg border transform hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-lg">
+    <div className="inline-block bg-primary/10 text-primary p-4 rounded-full mb-4">
       {icon}
     </div>
     <h4 className="text-xl font-semibold text-foreground mb-2 font-headline">{title}</h4>
@@ -98,7 +98,7 @@ const About = () => {
                   </div>
                   <div className="overflow-hidden rounded-xl shadow-lg">
                     <Image
-                        src="https://picsum.photos/seed/teamwork/500/400"
+                        src="https://picsum.photos/seed/team-mission/500/400"
                         alt="Team collaborating on a project"
                         width={500}
                         height={400}

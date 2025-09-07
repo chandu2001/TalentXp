@@ -8,7 +8,7 @@ import toast from 'react-hot-toast';
 import { useEffect } from 'react';
 
 const StatCard = ({ icon: Icon, title, value }: { icon: React.ElementType; title: string; value: string }) => (
-  <Card className="border">
+  <Card>
     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
       <CardTitle className="text-sm font-medium">{title}</CardTitle>
       <Icon className="h-4 w-4 text-muted-foreground" />
@@ -74,7 +74,7 @@ export default function EmployeeDashboardPage() {
 
           <section>
             <div className="grid md:grid-cols-2 gap-8">
-              <Card className="border">
+              <Card>
                 <CardHeader>
                   <CardTitle className="font-headline">Recent Activity</CardTitle>
                 </CardHeader>
@@ -93,7 +93,7 @@ export default function EmployeeDashboardPage() {
                   />
                 </CardContent>
               </Card>
-              <Card className="border">
+              <Card>
                 <CardHeader>
                   <CardTitle className="font-headline">Team Updates</CardTitle>
                 </CardHeader>

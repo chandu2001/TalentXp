@@ -1,8 +1,9 @@
 import { ServiceIcon } from '../ui/ServiceIcon';
+import AnimatedSection from '../ui/AnimatedSection';
 
 const FeatureCard = ({ icon, title, children }: { icon: React.ReactNode, title: string, children: React.ReactNode }) => (
-  <div className="bg-secondary/50 p-8 rounded-lg border border-white/10 transform hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-lg">
-     <div className="flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 text-primary mb-6">
+  <div className="bg-card p-8 rounded-lg border transform transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-2">
+     <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary mb-6">
       {icon}
     </div>
     <h3 className="text-xl font-semibold text-foreground mb-3 font-headline">
@@ -20,7 +21,7 @@ const WhyChooseUs = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-foreground mb-4 font-headline">
-            Why Partner with <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">TalentXp</span>?
+            Why Partner with <span className="text-primary">TalentXp</span>?
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body">
             We are more than a technology provider; we are your strategic partner in building a future-ready workforce. Our commitment is to deliver intelligent, fair, and impactful talent solutions.

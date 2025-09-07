@@ -47,7 +47,7 @@ const OurProcess = () => (
         </div>
         <div className="group overflow-hidden rounded-lg shadow-xl">
           <Image
-            src="https://picsum.photos/600/500"
+            src="https://picsum.photos/seed/process/600/500"
             alt="Our Process"
             width={600}
             height={500}
