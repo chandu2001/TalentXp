@@ -2,6 +2,7 @@ import Services from '@/components/sections/Services';
 import PageHeader from '@/components/sections/PageHeader';
 import Image from 'next/image';
 import { BarChart3, Bot, BrainCircuit } from 'lucide-react';
+import AnimatedSection from '@/components/ui/AnimatedSection';
 
 const ProcessStep = ({ number, title, description }: { number: string; title: string; description: string }) => (
   <div className="flex items-start space-x-4">
@@ -99,14 +100,22 @@ const AnalyticsSection = () => (
 export default function ServicesPage() {
     return (
       <>
-        <PageHeader
-          title="Our Services"
-          breadcrumb="Home / Services"
-          description="We provide a suite of AI-powered solutions designed to address your most complex challenges in talent management and business innovation."
-        />
-        <Services />
-        <OurProcess />
-        <AnalyticsSection />
+        <AnimatedSection>
+          <PageHeader
+            title="Our Services"
+            breadcrumb="Home / Services"
+            description="We provide a suite of AI-powered solutions designed to address your most complex challenges in talent management and business innovation."
+          />
+        </AnimatedSection>
+        <AnimatedSection>
+          <Services />
+        </AnimatedSection>
+        <AnimatedSection>
+          <OurProcess />
+        </AnimatedSection>
+        <AnimatedSection>
+          <AnalyticsSection />
+        </AnimatedSection>
       </>
   );
 }
