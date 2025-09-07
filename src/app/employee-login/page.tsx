@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { useState } from 'react';
 import { Loader2 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const loginSchema = z.object({
   email: z.string().email({ message: 'Invalid email address.' }),
@@ -20,6 +21,7 @@ type LoginFormValues = z.infer<typeof loginSchema>;
 
 export default function EmployeeLoginPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const router = useRouter();
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -35,12 +37,11 @@ export default function EmployeeLoginPage() {
 
     if (data.email === 'employee@talentxp.com' && data.password === 'password123') {
       toast.success('Login successful! Redirecting...');
-      // In a real app, you would redirect here:
-      // router.push('/dashboard');
+      router.push('/employee-dashboard');
     } else {
       toast.error('Invalid email or password.');
+      setIsSubmitting(false);
     }
-    setIsSubmitting(false);
   };
 
   return (
