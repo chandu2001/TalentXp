@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import toast from 'react-hot-toast';
 import { 
@@ -126,11 +125,7 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+        <div
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold text-gray-900 mb-4 font-headline">
@@ -139,14 +134,10 @@ const Contact = () => {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-body">
             Ready to transform your talent strategy with AI? Let's discuss how TalentXp can help your organization achieve exceptional results.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid lg:grid-cols-3 gap-12">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+          <div
             className="lg:col-span-2"
           >
             <div className="bg-white rounded-2xl p-8 shadow-lg">
@@ -216,21 +207,17 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+          <div
             className="lg:col-span-1"
           >
             <div className="space-y-8">
               <div className="space-y-6">
-                {contactInfo.map((contact, index) => {
+                {contactInfo.map((contact) => {
                   const Icon = contact.icon;
                   return (
-                    <motion.div key={contact.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }} viewport={{ once: true }} className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div key={contact.title} className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
                       <div className="flex items-start space-x-4">
                         <div className="bg-gradient-to-r from-blue-600 to-cyan-600 p-3 rounded-lg">
                           <Icon className="w-5 h-5 text-white" />
@@ -244,7 +231,7 @@ const Contact = () => {
                           )}
                         </div>
                       </div>
-                    </motion.div>
+                    </div>
                   );
                 })}
               </div>
@@ -261,7 +248,7 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

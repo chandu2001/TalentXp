@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import { getCareersContent } from '@/app/actions';
 import type { GenerateCareersContentOutput } from '@/ai/flows/ai-careers-content-generation';
 import { Briefcase, Feather, Building, Loader2, Sparkles, Send } from 'lucide-react';
@@ -34,11 +33,7 @@ const Careers = () => {
   return (
     <section id="careers" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+        <div
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold text-gray-900 mb-4 font-headline">
@@ -47,15 +42,10 @@ const Careers = () => {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-body">
             Use our generative AI to craft compelling job descriptions, employee stories, and culture highlights to attract top talent.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <div>
             <Card className="shadow-lg">
               <CardHeader>
                 <CardTitle className="font-headline text-2xl flex items-center">
@@ -113,13 +103,9 @@ const Careers = () => {
                 </form>
               </CardContent>
             </Card>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+          <div
             className="space-y-6"
           >
             {isLoading && (
@@ -171,7 +157,7 @@ const Careers = () => {
                 <p className="font-body mt-2">Fill out the form and click "Generate Content" to see the magic happen!</p>
               </div>
             )}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ArrowRight, TrendingUp, Users, Clock, Award, Sparkles, Loader2 } from 'lucide-react';
 import { getCaseStudySummary } from '@/app/actions';
@@ -19,7 +18,7 @@ const caseStudiesData = [
       { metric: "Hiring Costs", improvement: "40% savings", icon: TrendingUp },
       { metric: "Team Satisfaction", improvement: "95% approval", icon: Users }
     ],
-    image: { src: "https://picsum.photos/seed/tech-corp/800/600", hint: "corporate office" },
+    image: { src: "https://picsum.photos/seed/corporate-office/800/600", hint: "corporate office" },
     color: "from-blue-600 to-cyan-600"
   },
   {
@@ -35,7 +34,7 @@ const caseStudiesData = [
       { metric: "Retention Rate", improvement: "88% increase", icon: Award },
       { metric: "Productivity", improvement: "150% boost", icon: Clock }
     ],
-    image: { src: "https://picsum.photos/seed/startup-team/800/600", hint: "startup meeting" },
+    image: { src: "https://picsum.photos/seed/startup-meeting/800/600", hint: "startup meeting" },
     color: "from-purple-600 to-pink-600"
   },
   {
@@ -51,7 +50,7 @@ const caseStudiesData = [
       { metric: "Training Effectiveness", improvement: "200% ROI", icon: Award },
       { metric: "Turnover Reduction", improvement: "55% decrease", icon: Clock }
     ],
-    image: { src: "https://picsum.photos/seed/factory-floor/800/600", hint: "factory technology" },
+    image: { src: "https://picsum.photos/seed/factory-technology/800/600", hint: "factory technology" },
     color: "from-green-600 to-teal-600"
   }
 ];
@@ -72,11 +71,7 @@ const CaseStudies = () => {
   return (
     <section id="case-studies" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+        <div
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold text-gray-900 mb-4 font-headline">
@@ -85,16 +80,12 @@ const CaseStudies = () => {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-body">
             Real results from real clients. See how TalentXp has transformed talent management for leading organizations.
           </p>
-        </motion.div>
+        </div>
 
         <div className="space-y-20">
           {caseStudiesData.map((study, index) => (
-            <motion.div
+            <div
               key={study.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              viewport={{ once: true }}
               className={`grid lg:grid-cols-2 gap-12 items-center ${
                 index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
               }`}
@@ -179,20 +170,17 @@ const CaseStudies = () => {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
+                  <div
                     className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-lg p-4 border border-gray-200/50"
                   >
                     <div className="text-2xl font-bold text-gray-900 font-headline">
                       {study.results[0].improvement}
                     </div>
                     <div className="text-sm text-gray-600 font-body">{study.results[0].metric}</div>
-                  </motion.div>
+                  </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
