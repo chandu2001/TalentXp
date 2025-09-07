@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Award, Zap, Shield, CheckCircle, Target, Lightbulb, Users, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '../ui/button';
+import AnimatedSection from '../ui/AnimatedSection';
 
 const StatCard = ({ icon: Icon, number, label }: { icon: React.ElementType, number: string, label: string }) => (
   <div className="text-center bg-card p-6 rounded-lg border">
@@ -75,106 +76,116 @@ const About = () => {
 
   return (
     <>
-      <section id="about" className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h3 className="text-3xl font-bold text-foreground mb-6 font-headline">Our Mission & Vision</h3>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-6 font-body">
-                Our mission is to empower organizations to build future-ready workforces by harnessing the power of data-driven talent intelligence. We envision a world where every talent decision is smart, fair, and impactful, creating opportunities for individuals and sustainable growth for businesses.
-              </p>
-              <p className="text-muted-foreground leading-relaxed font-body">
-                We are a team of passionate technologists, data scientists, and HR experts dedicated to solving the most complex challenges in talent acquisition and management. We believe in the transformative power of AI to create more efficient, effective, and equitable workplaces.
-              </p>
-            </div>
-            <div>
-              <div className="relative">
-                 <div className="absolute -inset-2">
-                    <div className="w-full h-full max-w-md mx-auto opacity-20 blur-lg bg-gradient-to-r from-primary to-accent"></div>
+      <AnimatedSection>
+        <section id="about" className="py-20 bg-background">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <div>
+                <h3 className="text-3xl font-bold text-foreground mb-6 font-headline">Our Mission & Vision</h3>
+                <p className="text-muted-foreground text-lg leading-relaxed mb-6 font-body">
+                  Our mission is to empower organizations to build future-ready workforces by harnessing the power of data-driven talent intelligence. We envision a world where every talent decision is smart, fair, and impactful, creating opportunities for individuals and sustainable growth for businesses.
+                </p>
+                <p className="text-muted-foreground leading-relaxed font-body">
+                  We are a team of passionate technologists, data scientists, and HR experts dedicated to solving the most complex challenges in talent acquisition and management. We believe in the transformative power of AI to create more efficient, effective, and equitable workplaces.
+                </p>
+              </div>
+              <div>
+                <div className="relative">
+                   <div className="absolute -inset-2">
+                      <div className="w-full h-full max-w-md mx-auto opacity-20 blur-lg bg-gradient-to-r from-primary to-accent"></div>
+                  </div>
+                  <Image
+                    src="https://picsum.photos/500/400"
+                    alt="Team collaborating on a project"
+                    width={500}
+                    height={400}
+                    data-ai-hint="team collaboration"
+                    className="relative rounded-xl shadow-lg w-full h-auto object-cover"
+                  />
                 </div>
-                <Image
-                  src="https://picsum.photos/500/400"
-                  alt="Team collaborating on a project"
-                  width={500}
-                  height={400}
-                  data-ai-hint="team collaboration"
-                  className="relative rounded-xl shadow-lg w-full h-auto object-cover"
-                />
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </AnimatedSection>
 
-      <section className="py-20 bg-secondary/50 border-y">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4 font-headline">Our Values</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body">
-              The principles that guide our work and define our culture.
-            </p>
+      <AnimatedSection>
+        <section className="py-20 bg-secondary/50 border-y">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-foreground mb-4 font-headline">Our Values</h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body">
+                The principles that guide our work and define our culture.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <ValueCard icon={Lightbulb} title="Innovation">
+                We relentlessly pursue cutting-edge solutions that push the boundaries of what's possible in talent technology.
+              </ValueCard>
+              <ValueCard icon={Users} title="Customer Centricity">
+                We build collaborative partnerships with our clients, acting as an extension of their team to achieve shared goals.
+              </ValueCard>
+              <ValueCard icon={Target} title="Integrity">
+                We operate with transparency and ethical responsibility, ensuring our AI is fair, unbiased, and beneficial.
+              </ValueCard>
+            </div>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <ValueCard icon={Lightbulb} title="Innovation">
-              We relentlessly pursue cutting-edge solutions that push the boundaries of what's possible in talent technology.
-            </ValueCard>
-            <ValueCard icon={Users} title="Customer Centricity">
-              We build collaborative partnerships with our clients, acting as an extension of their team to achieve shared goals.
-            </ValueCard>
-            <ValueCard icon={Target} title="Integrity">
-              We operate with transparency and ethical responsibility, ensuring our AI is fair, unbiased, and beneficial.
-            </ValueCard>
-          </div>
-        </div>
-      </section>
+        </section>
+      </AnimatedSection>
       
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4 font-headline">Meet Our Team</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body">
-              The brilliant minds behind our innovative solutions.
-            </p>
+      <AnimatedSection>
+        <section className="py-20 bg-background">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-foreground mb-4 font-headline">Meet Our Team</h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body">
+                The brilliant minds behind our innovative solutions.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-8">
+                {teamMembers.map((member) => (
+                    <TeamMemberCard key={member.name} {...member} />
+                ))}
+            </div>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-              {teamMembers.map((member) => (
-                  <TeamMemberCard key={member.name} {...member} />
+        </section>
+      </AnimatedSection>
+
+      <AnimatedSection>
+        <section className="py-20 bg-secondary/50 border-y">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-foreground mb-4 font-headline">Our Journey</h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body">
+                Tracing our path from a bold idea to an industry leader.
+              </p>
+            </div>
+            <div className="space-y-12 max-w-3xl mx-auto">
+              <TimelineItem year="2020" title="The Idea is Born">
+                TalentXp was founded with the vision of transforming HR with artificial intelligence, starting with a small team of passionate engineers and HR experts.
+              </TimelineItem>
+               <TimelineItem year="2022" title="First Enterprise Client">
+                We partnered with our first Fortune 500 company, deploying a customized AI recruitment platform that reduced their time-to-hire by 40%.
+              </TimelineItem>
+               <TimelineItem year="2024" title="Expanding Our Solutions">
+                Launched our advanced talent analytics suite and GenAI tools, empowering organizations with deeper insights and content creation capabilities.
+              </TimelineItem>
+            </div>
+          </div>
+        </section>
+      </AnimatedSection>
+
+      <AnimatedSection>
+        <section className="py-20 bg-background">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+              {stats.map((stat) => (
+                <StatCard key={stat.label} {...stat} />
               ))}
+            </div>
           </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-secondary/50 border-y">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4 font-headline">Our Journey</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body">
-              Tracing our path from a bold idea to an industry leader.
-            </p>
-          </div>
-          <div className="space-y-12 max-w-3xl mx-auto">
-            <TimelineItem year="2020" title="The Idea is Born">
-              TalentXp was founded with the vision of transforming HR with artificial intelligence, starting with a small team of passionate engineers and HR experts.
-            </TimelineItem>
-             <TimelineItem year="2022" title="First Enterprise Client">
-              We partnered with our first Fortune 500 company, deploying a customized AI recruitment platform that reduced their time-to-hire by 40%.
-            </TimelineItem>
-             <TimelineItem year="2024" title="Expanding Our Solutions">
-              Launched our advanced talent analytics suite and GenAI tools, empowering organizations with deeper insights and content creation capabilities.
-            </TimelineItem>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat) => (
-              <StatCard key={stat.label} {...stat} />
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      </AnimatedSection>
     </>
   );
 };
