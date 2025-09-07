@@ -8,8 +8,8 @@ import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="relative bg-background pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center animated-grid [mask-image:linear-gradient(to_bottom,transparent,white)]"></div>
+    <section className="relative bg-secondary/50 pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden">
+      <div className="absolute inset-0 bg-[url('/grid-dark.svg')] bg-center animated-grid [mask-image:linear-gradient(to_bottom,transparent,white)]"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center">
           <motion.h1
