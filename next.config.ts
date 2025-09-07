@@ -24,6 +24,13 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  experimental: {
+    serverActions: {
+      bodySizeLimit: '4.5mb',
+      // Allow 2 minutes for video generation
+      executionTimeout: 120,
+    }
+  }
 };
 
 export default nextConfig;

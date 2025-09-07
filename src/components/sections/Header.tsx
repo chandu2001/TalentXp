@@ -18,6 +18,11 @@ const Header = () => {
       setIsLoggedIn(loggedIn);
     };
     checkLoginStatus();
+    // Listen for storage changes to update login status across tabs
+    window.addEventListener('storage', checkLoginStatus);
+    return () => {
+      window.removeEventListener('storage', checkLoginStatus);
+    }
   }, [pathname]);
 
 
@@ -28,6 +33,7 @@ const Header = () => {
     { name: 'Solutions', href: '/solutions' },
     { name: 'Case Studies', href: '/case-studies' },
     { name: 'Careers', href: '/careers' },
+    { name: 'Video Generation', href: '/video-generation' },
   ];
 
   const navigation = [
