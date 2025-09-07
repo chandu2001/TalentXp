@@ -1,5 +1,10 @@
+'use client';
+
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { BarChart, Briefcase, CheckCircle } from 'lucide-react';
+import { BarChart, Briefcase, CheckCircle, LogOut } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { Button } from '@/components/ui/button';
+import toast from 'react-hot-toast';
 
 const StatCard = ({ icon: Icon, title, value }: { icon: React.ElementType; title: string; value: string }) => (
   <Card className="border">
@@ -26,12 +31,25 @@ const ActivityItem = ({ title, description }: { title: string; description: stri
 );
 
 export default function EmployeeDashboardPage() {
+  const router = useRouter();
+
+  const handleSignOut = () => {
+    toast.success('Signed out successfully.');
+    router.push('/employee-login');
+  };
+
   return (
     <div className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <header className="mb-12">
-          <h1 className="text-4xl font-bold text-foreground font-headline">Welcome Back, Employee</h1>
-          <p className="mt-2 text-lg text-muted-foreground font-body">Here's a snapshot of your current progress and activities.</p>
+        <header className="mb-12 flex justify-between items-center">
+          <div>
+            <h1 className="text-4xl font-bold text-foreground font-headline">Welcome Back, Employee</h1>
+            <p className="mt-2 text-lg text-muted-foreground font-body">Here's a snapshot of your current progress and activities.</p>
+          </div>
+          <Button variant="outline" onClick={handleSignOut}>
+            <LogOut className="mr-2 h-4 w-4" />
+            Sign Out
+          </Button>
         </header>
 
         <main className="space-y-12">
