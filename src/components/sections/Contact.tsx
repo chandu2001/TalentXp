@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { 
   Mail, 
   Phone, 
@@ -67,7 +67,7 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY || EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID') {
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
         toast.error('EmailJS is not configured. Please add your credentials to the .env.local file.');
         return;
     }
@@ -86,7 +86,9 @@ const Contact = () => {
           message: formData.message,
           timestamp: new Date().toLocaleString()
         },
-        EMAILJS_PUBLIC_KEY
+        {
+          publicKey: EMAILJS_PUBLIC_KEY,
+        }
       );
 
       toast.success('Message sent successfully! We\'ll get back to you within 24 hours.', {
@@ -267,3 +269,5 @@ const Contact = () => {
 };
 
 export default Contact;
+
+    
