@@ -1,4 +1,3 @@
-// src/components/sections/FeaturedClient.tsx
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -15,7 +14,7 @@ const FeaturedClient = () => {
               Global Technology Corp's Talent Transformation
             </h2>
             <p className="text-muted-foreground text-lg mb-6">
-              We partnered with a Fortune 500 tech giant to overhaul their recruitment process. By implementing our AI-powered platform, we reduced their time-to-hire by an incredible 60% and boosted their candidate quality score by 85%.
+              We partnered with a Fortune 500 tech giant to overhaul their recruitment process. By implementing our AI-powered platform, we reduced their time-to-hire by an incredible 60% and boosted their candidate quality score by 85%. This strategic move not only saved them over $1.2M annually but also positioned them as a top destination for tech talent.
             </p>
             <Button asChild>
               <Link href="/case-studies">
@@ -25,11 +24,11 @@ const FeaturedClient = () => {
           </div>
           <div className="order-1 lg:order-2">
             <Image
-              src="https://picsum.photos/seed/1/600/500"
-              alt="Featured Client"
+              src="https://picsum.photos/600/500"
+              alt="Team discussing project on a whiteboard"
               width={600}
               height={500}
-              data-ai-hint="corporate office"
+              data-ai-hint="team meeting whiteboard"
               className="rounded-lg shadow-xl"
             />
           </div>

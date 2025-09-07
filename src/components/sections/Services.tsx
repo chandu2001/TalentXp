@@ -12,32 +12,32 @@ const Services = () => {
     {
       icon: Brain,
       title: "AI/ML Consulting",
-      description: "Leverage our expertise to build custom AI models, integrate machine learning, and unlock predictive analytics for your business.",
+      description: "Leverage our deep expertise to build and deploy custom AI models, integrate machine learning into your workflows, and unlock predictive analytics to drive business growth.",
     },
     {
       icon: Users,
       title: "Talent Acquisition",
-      description: "Utilize our AI-powered platform for smart candidate matching, automated screening, and cultural fit analysis to find the best talent.",
+      description: "Utilize our AI-powered platform for intelligent candidate matching, automated screening, and cultural fit analysis to find and attract the best talent, faster.",
     },
     {
       icon: Sparkles,
       title: "GenAI Solutions",
-      description: "Implement custom generative AI for HR, including AI chatbots, automated job description creation, and interview summaries.",
+      description: "Implement custom generative AI for HR, including AI-powered chatbots for candidate engagement, automated job description creation, and insightful interview summaries.",
     },
     {
       icon: BarChart3,
       title: "Talent Analytics",
-      description: "Gain data-driven insights into workforce optimization, performance metrics, diversity tracking, and retention prediction.",
+      description: "Gain data-driven insights into workforce optimization, performance metrics, diversity and inclusion tracking, and predictive retention modeling to build a stronger team.",
     },
     {
       icon: GraduationCap,
       title: "Training & Development",
-      description: "Deploy AI-enhanced, personalized learning programs to assess skills, identify gaps, and define clear career paths for employees.",
+      description: "Deploy AI-enhanced, personalized learning and development programs to assess skills, identify knowledge gaps, and define clear, actionable career paths for your employees.",
     },
     {
       icon: Target,
       title: "Strategic Consulting",
-      description: "Develop a comprehensive AI transformation strategy for your HR functions with a clear technology roadmap and ROI optimization plan.",
+      description: "Partner with us to develop a comprehensive AI transformation strategy for your HR functions, complete with a clear technology roadmap and ROI optimization plan.",
     }
   ];
 

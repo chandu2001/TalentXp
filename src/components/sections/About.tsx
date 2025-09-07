@@ -49,12 +49,12 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h3 className="text-3xl font-bold text-foreground mb-6 font-headline">Our Mission</h3>
+              <h3 className="text-3xl font-bold text-foreground mb-6 font-headline">Our Mission & Vision</h3>
               <p className="text-muted-foreground text-lg leading-relaxed mb-6 font-body">
-                At TalentXp, we believe that the future of work is intelligent, inclusive, and infinitely more effective. Our mission is to revolutionize talent management through advanced AI technologies that not only streamline processes but also unlock human potential at an unprecedented scale.
+                Our mission is to empower organizations to build future-ready workforces by harnessing the power of data-driven talent intelligence. We envision a world where every talent decision is smart, fair, and impactful, creating opportunities for individuals and sustainable growth for businesses.
               </p>
               <p className="text-muted-foreground leading-relaxed font-body">
-                We combine deep expertise in artificial intelligence, machine learning, and human resources to deliver solutions that drive measurable business outcomes while creating better, more equitable experiences for both employers and candidates.
+                We are a team of passionate technologists, data scientists, and HR experts dedicated to solving the most complex challenges in talent acquisition and management. We believe in the transformative power of AI to create more efficient, effective, and equitable workplaces.
               </p>
             </div>
             <div>
@@ -64,10 +64,10 @@ const About = () => {
                 </div>
                 <Image
                   src="https://picsum.photos/500/400"
-                  alt="Team discussing strategy"
+                  alt="Team collaborating on a project"
                   width={500}
                   height={400}
-                  data-ai-hint="team strategy"
+                  data-ai-hint="team collaboration"
                   className="relative rounded-xl shadow-lg w-full h-auto object-cover"
                 />
               </div>
@@ -88,8 +88,8 @@ const About = () => {
             <ValueCard icon={Lightbulb} title="Innovation">
               We relentlessly pursue cutting-edge solutions that push the boundaries of what's possible in talent technology.
             </ValueCard>
-            <ValueCard icon={Users} title="Partnership">
-              We build collaborative relationships with our clients, acting as an extension of their team to achieve shared goals.
+            <ValueCard icon={Users} title="Customer Centricity">
+              We build collaborative partnerships with our clients, acting as an extension of their team to achieve shared goals.
             </ValueCard>
             <ValueCard icon={Target} title="Integrity">
               We operate with transparency and ethical responsibility, ensuring our AI is fair, unbiased, and beneficial.

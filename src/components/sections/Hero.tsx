@@ -61,10 +61,10 @@ const Hero = () => {
             </div>
             <Image
               src="https://picsum.photos/1200/600"
-              alt="AI and human collaboration"
+              alt="AI and human collaboration dashboard"
               width={1200}
               height={600}
-              data-ai-hint="AI collaboration"
+              data-ai-hint="AI dashboard human"
               className="relative rounded-xl shadow-2xl w-full h-auto object-cover"
             />
           </div>

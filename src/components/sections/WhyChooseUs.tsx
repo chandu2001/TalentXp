@@ -1,4 +1,3 @@
-// src/components/sections/WhyChooseUs.tsx
 import { Target, Lightbulb, Users } from 'lucide-react';
 
 const FeatureCard = ({ icon: Icon, title, children }: { icon: React.ElementType, title: string, children: React.ReactNode }) => (
@@ -24,18 +23,18 @@ const WhyChooseUs = () => {
             Why Partner with <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-teal-400">TalentXp</span>?
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body">
-            We're more than a technology provider; we're your strategic partner in building the future of your workforce.
+            We are more than a technology provider; we are your strategic partner in building a future-ready workforce. Our commitment is to deliver intelligent, fair, and impactful talent solutions.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           <FeatureCard icon={Target} title="Bespoke Solutions">
-            We don't believe in one-size-fits-all. Our solutions are tailored to your unique business challenges and goals.
+            We don't believe in one-size-fits-all. Our AI-powered solutions are meticulously tailored to your unique business challenges and strategic goals.
           </FeatureCard>
           <FeatureCard icon={Lightbulb} title="Expert Team">
-            Our team consists of leading experts in AI, machine learning, and human resources, ensuring you get the best of both worlds.
+            Our team consists of leading experts in AI, machine learning, and human resources, ensuring you get the best of both worlds to drive innovation.
           </FeatureCard>
-          <FeatureCard icon={Users} title="Ethical AI">
-            We are committed to fairness and transparency. Our AI is designed to reduce bias and create equitable opportunities for all.
+          <FeatureCard icon={Users} title="Ethical & Responsible AI">
+            We are committed to fairness, transparency, and accountability. Our AI is designed to reduce bias and create equitable opportunities for all.
           </FeatureCard>
         </div>
       </div>

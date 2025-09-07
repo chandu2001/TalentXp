@@ -66,7 +66,7 @@ const AnalyticsSection = () => (
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div>
           <Image
-            src="https://picsum.photos/600/500?grayscale"
+            src="https://picsum.photos/600/500"
             alt="Data Analytics Dashboard"
             width={600}
             height={500}
