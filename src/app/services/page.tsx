@@ -45,14 +45,14 @@ const OurProcess = () => (
             description="We continuously monitor performance, providing ongoing support and optimization to ensure long-term success."
           />
         </div>
-        <div>
+        <div className="group overflow-hidden rounded-lg shadow-xl">
           <Image
-            src="https://picsum.photos/600/500"
+            src="https://picsum.photos/600/500?grayscale"
             alt="Our Process"
             width={600}
             height={500}
             data-ai-hint="team collaboration"
-            className="rounded-lg shadow-xl"
+            className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
           />
         </div>
       </div>
@@ -64,14 +64,14 @@ const AnalyticsSection = () => (
   <section className="py-20 bg-secondary/50 border-y">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid md:grid-cols-2 gap-12 items-center">
-        <div>
+        <div className="group overflow-hidden rounded-lg shadow-xl">
           <Image
-            src="https://picsum.photos/600/500"
+            src="https://picsum.photos/seed/dashboard/600/500"
             alt="Data Analytics Dashboard"
             width={600}
             height={500}
             data-ai-hint="data dashboard"
-            className="rounded-lg shadow-xl"
+            className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
           />
         </div>
         <div className="space-y-8">

@@ -16,7 +16,7 @@ const caseStudiesData = [
     challenge: "A Fortune 500 tech giant was struggling with a lengthy and inefficient recruitment process. Their average time-to-hire was 45 days, leading to the loss of top candidates and increased hiring costs. They needed to significantly accelerate hiring without compromising on the quality of talent.",
     solution: "We deployed our flagship AI-powered talent acquisition platform, customizing its matching algorithms to their specific job taxonomies. The system automated resume screening, identified best-fit candidates from a pool of over 50,000 applicants, and provided predictive analytics on candidate success.",
     results: "Reduced average time-to-hire by 60% (from 45 to 18 days). Increased new hire quality score by 85% based on 6-month performance reviews. Saved an estimated $1.2M in annual recruitment costs.",
-    image: { src: "https://picsum.photos/800/600", hint: "corporate office building" },
+    image: { src: "https://picsum.photos/seed/tech/800/600", hint: "corporate office building" },
   },
   {
     id: 2,
@@ -69,14 +69,14 @@ const CaseStudies = () => {
         <div className="space-y-20">
           {caseStudiesData.map((study, index) => (
             <div key={study.id} className="grid md:grid-cols-2 gap-12 items-center">
-              <div className={cn("order-1", index % 2 === 0 ? "md:order-1" : "md:order-2")}>
+              <div className={cn("order-1 group overflow-hidden rounded-lg shadow-xl", index % 2 === 0 ? "md:order-1" : "md:order-2")}>
                  <Image
                   src={study.image.src}
                   alt={study.title}
                   width={800}
                   height={600}
                   data-ai-hint={study.image.hint}
-                  className="w-full h-auto object-cover rounded-lg shadow-xl"
+                  className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
               <div className={cn("order-2", index % 2 === 0 ? "md:order-2" : "md:order-1")}>

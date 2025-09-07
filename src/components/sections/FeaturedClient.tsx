@@ -22,14 +22,14 @@ const FeaturedClient = () => {
               </Link>
             </Button>
           </div>
-          <div className="order-1 lg:order-2">
+          <div className="order-1 lg:order-2 group overflow-hidden rounded-lg shadow-xl">
             <Image
-              src="https://picsum.photos/600/500"
+              src="https://picsum.photos/seed/meeting/600/500"
               alt="Team discussing project on a whiteboard"
               width={600}
               height={500}
               data-ai-hint="team meeting whiteboard"
-              className="rounded-lg shadow-xl"
+              className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </div>
         </div>

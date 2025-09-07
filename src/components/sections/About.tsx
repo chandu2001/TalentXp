@@ -40,14 +40,14 @@ const TimelineItem = ({ year, title, children }: { year: string, title: string, 
 
 const TeamMemberCard = ({ name, title, imageUrl, linkedinUrl }: { name: string, title: string, imageUrl: string, linkedinUrl: string }) => (
     <div className="text-center bg-card p-6 rounded-lg border transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1">
-        <div className="relative inline-block mb-4">
+        <div className="relative inline-block mb-4 group overflow-hidden rounded-full">
             <Image
                 src={imageUrl}
                 alt={name}
                 width={128}
                 height={128}
                 data-ai-hint="person photo"
-                className="rounded-full w-32 h-32 object-cover"
+                className="rounded-full w-32 h-32 object-cover transition-transform duration-300 group-hover:scale-105"
             />
         </div>
         <h4 className="text-xl font-semibold text-foreground mb-1 font-headline">{name}</h4>
@@ -69,9 +69,9 @@ const About = () => {
   ];
   
   const teamMembers = [
-      { name: 'Dr. Evelyn Reed', title: 'Founder & CEO', imageUrl: 'https://picsum.photos/seed/person1/128/128', linkedinUrl: '#' },
-      { name: 'Marcus Chen', title: 'Chief Technology Officer', imageUrl: 'https://picsum.photos/seed/person2/128/128', linkedinUrl: '#' },
-      { name: 'Aria Sharma', title: 'Head of Talent Strategy', imageUrl: 'https://picsum.photos/seed/person3/128/128', linkedinUrl: '#' },
+      { name: 'Dr. Evelyn Reed', title: 'Founder & CEO', imageUrl: 'https://picsum.photos/seed/woman1/128/128', linkedinUrl: '#' },
+      { name: 'Marcus Chen', title: 'Chief Technology Officer', imageUrl: 'https://picsum.photos/seed/man1/128/128', linkedinUrl: '#' },
+      { name: 'Aria Sharma', title: 'Head of Talent Strategy', imageUrl: 'https://picsum.photos/seed/woman2/128/128', linkedinUrl: '#' },
   ];
 
   return (
@@ -90,18 +90,20 @@ const About = () => {
                 </p>
               </div>
               <div>
-                <div className="relative">
+                <div className="relative group">
                    <div className="absolute -inset-2">
                       <div className="w-full h-full max-w-md mx-auto opacity-20 blur-lg bg-gradient-to-r from-primary to-accent"></div>
                   </div>
-                  <Image
-                    src="https://picsum.photos/500/400"
-                    alt="Team collaborating on a project"
-                    width={500}
-                    height={400}
-                    data-ai-hint="team collaboration"
-                    className="relative rounded-xl shadow-lg w-full h-auto object-cover"
-                  />
+                  <div className="overflow-hidden rounded-xl shadow-lg">
+                    <Image
+                        src="https://picsum.photos/seed/teamwork/500/400"
+                        alt="Team collaborating on a project"
+                        width={500}
+                        height={400}
+                        data-ai-hint="team collaboration"
+                        className="relative w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

@@ -56,18 +56,20 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="mt-20"
         >
-          <div className="relative">
+          <div className="relative group">
             <div className="absolute -inset-2">
                 <div className="w-full h-full max-w-7xl mx-auto opacity-20 blur-lg bg-gradient-to-r from-primary to-accent"></div>
             </div>
-            <Image
-              src="https://picsum.photos/1200/600"
-              alt="AI and human collaboration dashboard"
-              width={1200}
-              height={600}
-              data-ai-hint="AI dashboard human"
-              className="relative rounded-xl shadow-2xl w-full h-auto object-cover"
-            />
+            <div className="overflow-hidden rounded-xl shadow-2xl">
+              <Image
+                src="https://picsum.photos/seed/ai/1200/600"
+                alt="AI and human collaboration dashboard"
+                width={1200}
+                height={600}
+                data-ai-hint="AI dashboard human"
+                className="relative w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
           </div>
         </motion.div>
       </div>
