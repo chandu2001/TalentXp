@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -8,16 +8,32 @@ import { cn } from '@/lib/utils';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const pathname = usePathname();
 
-  const navigation = [
+  useEffect(() => {
+    const checkLoginStatus = () => {
+      const loggedIn = localStorage.getItem('isLoggedIn') === 'true';
+      setIsLoggedIn(loggedIn);
+    };
+    checkLoginStatus();
+  }, [pathname]);
+
+
+  const baseNavigation = [
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
     { name: 'Services', href: '/services' },
     { name: 'Solutions', href: '/solutions' },
     { name: 'Case Studies', href: '/case-studies' },
     { name: 'Careers', href: '/careers' },
-    { name: 'Dashboard', href: '/employee-dashboard' }
+  ];
+
+  const navigation = [
+    ...baseNavigation,
+    isLoggedIn
+      ? { name: 'Dashboard', href: '/employee-dashboard' }
+      : { name: 'Employee Login', href: '/employee-login' }
   ];
 
   return (
