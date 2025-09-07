@@ -3,9 +3,12 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -20,44 +23,45 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center shadow-md">
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shadow-md">
                 <span className="text-white font-bold text-lg font-headline">TX</span>
               </div>
               <span className="text-2xl font-bold text-gray-900 font-headline">TalentXp</span>
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-1">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors font-body"
+                className={cn(
+                  'px-3 py-2 text-sm font-medium transition-colors rounded-md',
+                  pathname === item.href
+                    ? 'text-primary-foreground bg-primary'
+                    : 'text-gray-700 hover:bg-gray-100'
+                )}
               >
                 {item.name}
               </Link>
             ))}
           </nav>
 
-          {/* CTA Button */}
           <div className="hidden md:flex">
             <Link
               href="/contact"
-              className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-2 rounded-lg font-medium hover:scale-105 transition-transform shadow-lg hover:shadow-xl font-body"
+              className="bg-primary text-primary-foreground px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors shadow-sm"
             >
               Contact Us
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-blue-600 p-2"
+              className="text-gray-700 hover:text-primary p-2"
               aria-label="Toggle menu"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -66,7 +70,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -81,7 +84,12 @@ const Header = () => {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md"
+                   className={cn(
+                    'block px-3 py-2 text-base font-medium rounded-md',
+                    pathname === item.href
+                      ? 'bg-primary text-primary-foreground'
+                      : 'text-gray-700 hover:bg-gray-50'
+                  )}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
@@ -89,7 +97,7 @@ const Header = () => {
               ))}
               <Link
                 href="/contact"
-                className="block mx-3 my-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-4 py-3 rounded-lg font-medium text-center"
+                className="block mx-3 my-3 bg-primary text-primary-foreground px-4 py-3 rounded-lg font-medium text-center"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact Us
