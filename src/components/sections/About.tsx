@@ -1,5 +1,7 @@
 import Image from 'next/image';
-import { Award, Zap, Shield, CheckCircle, Target, Lightbulb, Users } from 'lucide-react';
+import { Award, Zap, Shield, CheckCircle, Target, Lightbulb, Users, Linkedin } from 'lucide-react';
+import Link from 'next/link';
+import { Button } from '../ui/button';
 
 const StatCard = ({ icon: Icon, number, label }: { icon: React.ElementType, number: string, label: string }) => (
   <div className="text-center bg-card p-6 rounded-lg border">
@@ -35,12 +37,40 @@ const TimelineItem = ({ year, title, children }: { year: string, title: string, 
   </div>
 );
 
+const TeamMemberCard = ({ name, title, imageUrl, linkedinUrl }: { name: string, title: string, imageUrl: string, linkedinUrl: string }) => (
+    <div className="text-center bg-card p-6 rounded-lg border transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+        <div className="relative inline-block mb-4">
+            <Image
+                src={imageUrl}
+                alt={name}
+                width={128}
+                height={128}
+                data-ai-hint="person photo"
+                className="rounded-full w-32 h-32 object-cover"
+            />
+        </div>
+        <h4 className="text-xl font-semibold text-foreground mb-1 font-headline">{name}</h4>
+        <p className="text-primary font-body mb-3">{title}</p>
+        <Button variant="outline" size="icon" asChild>
+            <Link href={linkedinUrl} target="_blank" rel="noopener noreferrer">
+                <Linkedin className="w-4 h-4" />
+            </Link>
+        </Button>
+    </div>
+);
+
 const About = () => {
   const stats = [
     { number: "500+", label: "Successful AI Implementations", icon: Zap },
     { number: "95%", label: "Client Satisfaction Rate", icon: Award },
     { number: "50+", label: "Enterprise Clients", icon: Shield },
     { number: "200%", label: "Average ROI Improvement", icon: CheckCircle }
+  ];
+  
+  const teamMembers = [
+      { name: 'Dr. Evelyn Reed', title: 'Founder & CEO', imageUrl: 'https://picsum.photos/seed/person1/128/128', linkedinUrl: '#' },
+      { name: 'Marcus Chen', title: 'Chief Technology Officer', imageUrl: 'https://picsum.photos/seed/person2/128/128', linkedinUrl: '#' },
+      { name: 'Aria Sharma', title: 'Head of Talent Strategy', imageUrl: 'https://picsum.photos/seed/person3/128/128', linkedinUrl: '#' },
   ];
 
   return (
@@ -97,8 +127,24 @@ const About = () => {
           </div>
         </div>
       </section>
-
+      
       <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-foreground mb-4 font-headline">Meet Our Team</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body">
+              The brilliant minds behind our innovative solutions.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+              {teamMembers.map((member) => (
+                  <TeamMemberCard key={member.name} {...member} />
+              ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-secondary/50 border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4 font-headline">Our Journey</h2>
@@ -120,7 +166,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-secondary/50 border-y">
+      <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat) => (
