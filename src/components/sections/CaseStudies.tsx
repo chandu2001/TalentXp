@@ -4,8 +4,8 @@ import Image from 'next/image';
 import { ArrowRight, Sparkles, Loader2 } from 'lucide-react';
 import { getCaseStudySummary } from '@/app/actions';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 const caseStudiesData = [
   {
@@ -26,7 +26,7 @@ const caseStudiesData = [
     challenge: "A rapidly growing fintech startup needed to scale its team from 50 to over 200 employees within a year. Their primary challenge was maintaining their unique company culture and ensuring that new hires were not only skilled but also aligned with their values of innovation and collaboration.",
     solution: "We developed and implemented a custom AI-driven cultural fit assessment tool. This platform analyzed candidate responses to situational questions and compared them against the company's core value profile, providing recruiters with a 'cultural alignment score' for each applicant.",
     results: "Enabled a 4x team growth in one year while maintaining a 92% employee retention rate. The cultural fit assessment tool achieved a 95% accuracy in predicting strong team integration. New hire engagement scores were 25% higher than the industry average.",
-    image: { src: "https://picsum.photos/800/600", hint: "modern startup office" },
+    image: { src: "https://picsum.photos/seed/fintech/800/600", hint: "modern startup office" },
   },
   {
     id: 3,
@@ -36,7 +36,17 @@ const caseStudiesData = [
     challenge: "A global manufacturing conglomerate with over 15 locations worldwide faced challenges in workforce optimization and high employee turnover, which was impacting production efficiency. They lacked the tools to gain deep insights into performance and retention drivers across their diverse workforce.",
     solution: "We deployed a comprehensive, AI-driven workforce analytics platform that integrated data from their existing HRIS, payroll, and performance management systems. The platform provided predictive insights on turnover risk, identified key drivers of performance, and visualized operational efficiency metrics in real-time.",
     results: "Reduced employee turnover by 55% within the first 18 months, leading to significant cost savings. Boosted overall operational efficiency by 45% through data-driven staffing and development decisions. Provided leadership with actionable insights, improving strategic workforce planning.",
-    image: { src: "https://picsum.photos/800/600", hint: "industrial manufacturing facility" },
+    image: { src: "https://picsum.photos/seed/mfg/800/600", hint: "industrial manufacturing facility" },
+  },
+  {
+    id: 4,
+    title: "Healthcare Hiring Accuracy",
+    company: "MediCare Hospital Network",
+    industry: "Healthcare",
+    challenge: "A large hospital network needed to improve the accuracy and efficiency of hiring specialized medical staff, from nurses to surgeons. The high stakes of the roles required a rigorous vetting process that was slow and resource-intensive, causing delays in staffing critical positions.",
+    solution: "We implemented an AI-powered credential verification and skill-matching system. The tool automatically cross-referenced candidate qualifications with role requirements and professional databases, flagging the most suitable candidates and reducing manual review time.",
+    results: "Improved hiring accuracy for critical medical roles by 98%. Reduced credential verification time by 75%, allowing for faster onboarding of essential staff. Decreased administrative workload on HR by 50%, freeing them to focus on candidate engagement.",
+    image: { src: "https://picsum.photos/seed/healthcare/800/600", hint: "hospital interior" },
   }
 ];
 
@@ -45,7 +55,7 @@ const CaseStudies = () => {
   const [loading, setLoading] = useState<Record<number, boolean>>({});
 
   const handleGenerateSummary = async (study: typeof caseStudiesData[0]) => {
-    if (summaries[study.id]) return; 
+    if (summaries[study.id]) return;
     setLoading(prev => ({ ...prev, [study.id]: true }));
     const textToSummarize = `Challenge: ${study.challenge}\nSolution: ${study.solution}\nResults: ${study.results}`;
     const summary = await getCaseStudySummary(textToSummarize);
@@ -56,26 +66,39 @@ const CaseStudies = () => {
   return (
     <section id="case-studies" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {caseStudiesData.map((study) => (
-            <Card key={study.id} className="overflow-hidden bg-card hover:bg-secondary/50 transition-colors duration-300 group">
-              <div className="overflow-hidden">
-              <Image
-                src={study.image.src}
-                alt={study.title}
-                width={800}
-                height={600}
-                data-ai-hint={study.image.hint}
-                className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
-              />
+        <div className="space-y-20">
+          {caseStudiesData.map((study, index) => (
+            <div key={study.id} className="grid md:grid-cols-2 gap-12 items-center">
+              <div className={cn("order-1", index % 2 === 0 ? "md:order-1" : "md:order-2")}>
+                 <Image
+                  src={study.image.src}
+                  alt={study.title}
+                  width={800}
+                  height={600}
+                  data-ai-hint={study.image.hint}
+                  className="w-full h-auto object-cover rounded-lg shadow-xl"
+                />
               </div>
-              <CardContent className="p-6">
+              <div className={cn("order-2", index % 2 === 0 ? "md:order-2" : "md:order-1")}>
                 <Badge variant="secondary" className="mb-2">{study.industry}</Badge>
-                <h3 className="text-xl font-semibold text-foreground mb-2 font-headline">
+                <h3 className="text-2xl font-bold text-foreground mb-4 font-headline">
                   {study.title}
                 </h3>
-                <p className="text-muted-foreground font-body text-sm mb-4">{study.results}</p>
-                 <div className="mt-4 p-4 bg-background rounded-lg border">
+                <div className="space-y-6 text-muted-foreground font-body">
+                  <div>
+                    <h4 className="font-semibold text-foreground mb-1">The Challenge</h4>
+                    <p>{study.challenge}</p>
+                  </div>
+                   <div>
+                    <h4 className="font-semibold text-foreground mb-1">The Solution</h4>
+                    <p>{study.solution}</p>
+                  </div>
+                   <div>
+                    <h4 className="font-semibold text-foreground mb-1">The Results</h4>
+                    <p>{study.results}</p>
+                  </div>
+                </div>
+                 <div className="mt-6 p-4 bg-secondary/50 rounded-lg border">
                   <h4 className="font-semibold text-foreground mb-2 flex items-center text-sm">
                     <Sparkles className="w-4 h-4 mr-2 text-primary" />
                     AI-Generated Summary
@@ -100,8 +123,8 @@ const CaseStudies = () => {
                     </Button>
                   )}
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           ))}
         </div>
       </div>
