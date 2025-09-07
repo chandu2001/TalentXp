@@ -61,7 +61,7 @@ const Hero = () => {
             </div>
             <div className="overflow-hidden rounded-xl shadow-2xl">
               <Image
-                src="https://picsum.photos/seed/ai-hero/1200/600"
+                src="https://picsum.photos/seed/ai-tech/1200/600"
                 alt="AI and human collaboration dashboard"
                 width={1200}
                 height={600}

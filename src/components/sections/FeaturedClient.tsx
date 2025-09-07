@@ -24,7 +24,7 @@ const FeaturedClient = () => {
           </div>
           <div className="order-1 lg:order-2 group overflow-hidden rounded-lg shadow-xl">
             <Image
-              src="https://picsum.photos/seed/success/600/500"
+              src="https://picsum.photos/seed/corporate-success/600/500"
               alt="Team discussing project on a whiteboard"
               width={600}
               height={500}
