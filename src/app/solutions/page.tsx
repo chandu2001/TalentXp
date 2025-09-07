@@ -1,5 +1,5 @@
-import Careers from '@/components/sections/Careers';
 import PageHeader from '@/components/sections/PageHeader';
+import Solutions from '@/components/sections/Solutions';
 
 export default function SolutionsPage() {
   return (
@@ -9,7 +9,7 @@ export default function SolutionsPage() {
         breadcrumb="Home / Solutions"
         description="Leverage our generative AI to craft compelling job descriptions, employee stories, and culture highlights to attract top talent, faster."
       />
-      <Careers />
+      <Solutions />
     </>
   );
 }
