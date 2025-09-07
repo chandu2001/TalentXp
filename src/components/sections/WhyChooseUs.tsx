@@ -1,8 +1,8 @@
 import { ServiceIcon } from '../ui/ServiceIcon';
 
 const FeatureCard = ({ icon, title, children }: { icon: React.ReactNode, title: string, children: React.ReactNode }) => (
-  <div className="bg-card p-8 rounded-lg border transform hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-lg">
-     <div className="flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 text-primary mb-6">
+  <div className="bg-secondary/50 p-8 rounded-lg border border-white/10 transform hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-lg">
+     <div className="flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 text-primary mb-6">
       {icon}
     </div>
     <h3 className="text-xl font-semibold text-foreground mb-3 font-headline">
@@ -16,7 +16,7 @@ const FeatureCard = ({ icon, title, children }: { icon: React.ReactNode, title: 
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-20 bg-secondary/50 border-y">
+    <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-foreground mb-4 font-headline">
