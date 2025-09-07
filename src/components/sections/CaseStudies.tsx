@@ -19,7 +19,7 @@ const caseStudiesData = [
       { metric: "Hiring Costs", improvement: "40% savings", icon: TrendingUp },
       { metric: "Team Satisfaction", improvement: "95% approval", icon: Users }
     ],
-    image: { src: "https://picsum.photos/800/600?random=1", hint: "corporate office" },
+    image: { src: "https://picsum.photos/seed/tech-corp/800/600", hint: "corporate office" },
     color: "from-blue-600 to-cyan-600"
   },
   {
@@ -35,7 +35,7 @@ const caseStudiesData = [
       { metric: "Retention Rate", improvement: "88% increase", icon: Award },
       { metric: "Productivity", improvement: "150% boost", icon: Clock }
     ],
-    image: { src: "https://picsum.photos/800/600?random=2", hint: "startup meeting" },
+    image: { src: "https://picsum.photos/seed/startup-team/800/600", hint: "startup meeting" },
     color: "from-purple-600 to-pink-600"
   },
   {
@@ -51,7 +51,7 @@ const caseStudiesData = [
       { metric: "Training Effectiveness", improvement: "200% ROI", icon: Award },
       { metric: "Turnover Reduction", improvement: "55% decrease", icon: Clock }
     ],
-    image: { src: "https://picsum.photos/800/600?random=3", hint: "factory technology" },
+    image: { src: "https://picsum.photos/seed/factory-floor/800/600", hint: "factory technology" },
     color: "from-green-600 to-teal-600"
   }
 ];
