@@ -2,7 +2,6 @@
 
 import { summarizeCaseStudy } from '@/ai/flows/ai-summarize-case-studies';
 import { generateCareersContent, type GenerateCareersContentInput } from '@/ai/flows/ai-careers-content-generation';
-import { generateVideoFromPrompt } from '@/ai/flows/ai-video-generation';
 
 export async function getCaseStudySummary(caseStudyText: string) {
   try {
@@ -26,14 +25,4 @@ export async function getCareersContent(input: GenerateCareersContentInput) {
             companyCultureHighlights: 'Error: Could not generate company culture highlights.'
         };
     }
-}
-
-export async function generateVideo(prompt: string): Promise<{ videoDataUri?: string; error?: string }> {
-  try {
-    const result = await generateVideoFromPrompt({ prompt });
-    return { videoDataUri: result.videoDataUri };
-  } catch (error: any) {
-    console.error('Error generating video:', error);
-    return { error: error.message || 'An unknown error occurred during video generation.' };
-  }
 }
