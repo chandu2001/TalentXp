@@ -1,7 +1,18 @@
 import Careers from '@/components/sections/Careers';
+import PageHeader from '@/components/sections/PageHeader';
+import AnimatedSection from '@/components/ui/AnimatedSection';
 
 export default function SolutionsPage() {
-  // Renaming Careers to Solutions as per the reference navigation.
-  // The content of the original Careers section serves as a good example of a "solution".
-  return <Careers />;
+  return (
+    <>
+       <PageHeader
+        title="Our Solutions"
+        breadcrumb="Home / Solutions"
+        description="Use our generative AI to craft compelling job descriptions, employee stories, and culture highlights to attract top talent."
+      />
+      <AnimatedSection>
+        <Careers />
+      </AnimatedSection>
+    </>
+  );
 }
