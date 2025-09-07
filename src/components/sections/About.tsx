@@ -98,7 +98,7 @@ const About = () => {
                   </div>
                   <div className="overflow-hidden rounded-xl shadow-lg">
                     <Image
-                        src="https://picsum.photos/seed/mission-vision/500/400"
+                        src="https://picsum.photos/seed/mission/500/400"
                         alt="Team collaborating on a project"
                         width={500}
                         height={400}
