@@ -1,20 +1,16 @@
 import Careers from '@/components/sections/Careers';
 import PageHeader from '@/components/sections/PageHeader';
-import AnimatedSection from '@/components/ui/AnimatedSection';
+import AnimatedPage from '@/components/ui/AnimatedPage';
 
 export default function SolutionsPage() {
   return (
-    <>
-      <AnimatedSection>
-        <PageHeader
-          title="AI-Powered Solutions"
-          breadcrumb="Home / Solutions"
-          description="Leverage our generative AI to craft compelling job descriptions, employee stories, and culture highlights to attract top talent, faster."
-        />
-      </AnimatedSection>
-      <AnimatedSection>
-        <Careers />
-      </AnimatedSection>
-    </>
+    <AnimatedPage>
+      <PageHeader
+        title="AI-Powered Solutions"
+        breadcrumb="Home / Solutions"
+        description="Leverage our generative AI to craft compelling job descriptions, employee stories, and culture highlights to attract top talent, faster."
+      />
+      <Careers />
+    </AnimatedPage>
   );
 }
