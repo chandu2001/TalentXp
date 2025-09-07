@@ -1,6 +1,5 @@
 import CaseStudies from '@/components/sections/CaseStudies';
 import PageHeader from '@/components/sections/PageHeader';
-import AnimatedSection from '@/components/ui/AnimatedSection';
 
 export default function CaseStudiesPage() {
   return (
@@ -10,9 +9,7 @@ export default function CaseStudiesPage() {
         breadcrumb="Home / Case Studies"
         description="Real results from real clients. See how TalentXp has transformed talent management for leading organizations."
       />
-      <AnimatedSection>
-        <CaseStudies />
-      </AnimatedSection>
+      <CaseStudies />
     </>
   );
 }

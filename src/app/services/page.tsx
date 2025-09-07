@@ -1,6 +1,5 @@
 import Services from '@/components/sections/Services';
 import PageHeader from '@/components/sections/PageHeader';
-import AnimatedSection from '@/components/ui/AnimatedSection';
 import Image from 'next/image';
 import { BarChart3, Bot, BrainCircuit } from 'lucide-react';
 
@@ -105,15 +104,9 @@ export default function ServicesPage() {
           breadcrumb="Home / Services"
           description="We provide a suite of AI-powered solutions designed to address your most complex challenges in talent management and business innovation."
         />
-        <AnimatedSection>
-          <Services />
-        </AnimatedSection>
-        <AnimatedSection>
-          <OurProcess />
-        </AnimatedSection>
-        <AnimatedSection>
-          <AnalyticsSection />
-        </AnimatedSection>
+        <Services />
+        <OurProcess />
+        <AnalyticsSection />
       </>
   );
 }
