@@ -1,9 +1,11 @@
-import type {Metadata} from 'next';
+'use client';
 import './globals.css';
 import { Toaster } from 'react-hot-toast';
 import Header from '@/components/sections/Header';
 import Footer from '@/components/sections/Footer';
 import { Poppins, PT_Sans } from 'next/font/google';
+import { AnimatePresence, motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -17,22 +19,29 @@ const ptSans = PT_Sans({
   variable: '--font-pt-sans',
 });
 
-export const metadata: Metadata = {
-  title: 'TalentXp - AI/ML Consulting & Talent Solutions',
-  description: 'Empowering Businesses with AI-Driven Talent Solutions',
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${poppins.variable} ${ptSans.variable} font-body antialiased bg-background`}>
         <Toaster />
         <Header />
-        <main className="pt-20">{children}</main>
+        <AnimatePresence mode="wait">
+          <motion.main
+            key={pathname}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="pt-20"
+          >
+            {children}
+          </motion.main>
+        </AnimatePresence>
         <Footer />
       </body>
     </html>
