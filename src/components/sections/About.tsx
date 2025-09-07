@@ -71,9 +71,9 @@ const About = () => {
   ];
   
   const teamMembers = [
-      { name: 'Dr. Evelyn Reed', title: 'Founder & CEO', imageUrl: 'https://picsum.photos/seed/woman1/128/128', linkedinUrl: '#' },
-      { name: 'Marcus Chen', title: 'Chief Technology Officer', imageUrl: 'https://picsum.photos/seed/man1/128/128', linkedinUrl: '#' },
-      { name: 'Aria Sharma', title: 'Head of Talent Strategy', imageUrl: 'https://picsum.photos/seed/woman2/128/128', linkedinUrl: '#' },
+      { name: 'Dr. Evelyn Reed', title: 'Founder & CEO', imageUrl: 'https://picsum.photos/seed/evelyn/128/128', linkedinUrl: '#' },
+      { name: 'Marcus Chen', title: 'Chief Technology Officer', imageUrl: 'https://picsum.photos/seed/marcus/128/128', linkedinUrl: '#' },
+      { name: 'Aria Sharma', title: 'Head of Talent Strategy', imageUrl: 'https://picsum.photos/seed/aria/128/128', linkedinUrl: '#' },
   ];
 
   return (
@@ -98,7 +98,7 @@ const About = () => {
                   </div>
                   <div className="overflow-hidden rounded-xl shadow-lg">
                     <Image
-                        src="https://picsum.photos/seed/team-mission/500/400"
+                        src="https://picsum.photos/seed/mission-vision/500/400"
                         alt="Team collaborating on a project"
                         width={500}
                         height={400}

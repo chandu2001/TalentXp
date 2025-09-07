@@ -47,7 +47,7 @@ const OurProcess = () => (
         </div>
         <div className="group overflow-hidden rounded-lg shadow-xl">
           <Image
-            src="https://picsum.photos/seed/process/600/500"
+            src="https://picsum.photos/seed/team-process/600/500"
             alt="Our Process"
             width={600}
             height={500}
@@ -66,7 +66,7 @@ const AnalyticsSection = () => (
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div className="group overflow-hidden rounded-lg shadow-xl">
           <Image
-            src="https://picsum.photos/seed/dashboard/600/500"
+            src="https://picsum.photos/seed/analytics-dashboard/600/500"
             alt="Data Analytics Dashboard"
             width={600}
             height={500}
