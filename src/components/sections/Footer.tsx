@@ -26,16 +26,16 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-card text-card-foreground font-body border-t">
+    <footer className="bg-gradient-to-t from-gray-900 to-gray-950 text-white font-body border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-16">
           <div className="grid lg:grid-cols-12 gap-8">
             <div className="lg:col-span-4">
                <Link href="/" className="flex items-center space-x-2 mb-4">
                 <Logo className="h-10 w-10" />
-                <span className="text-2xl font-bold font-headline text-foreground">TalentXp</span>
+                <span className="text-2xl font-bold font-headline text-white">TalentXp</span>
               </Link>
-              <p className="text-muted-foreground mb-6 leading-relaxed text-sm">
+              <p className="text-gray-400 mb-6 leading-relaxed text-sm">
                 Empowering businesses with AI-driven talent solutions.
               </p>
             </div>
@@ -43,11 +43,11 @@ const Footer = () => {
             <div className="lg:col-span-5 grid grid-cols-3 gap-8">
               {Object.entries(footerLinks).map(([category, links]) => (
                 <div key={category}>
-                  <h4 className="font-semibold text-foreground mb-4 font-headline text-sm uppercase tracking-wider">{category}</h4>
+                  <h4 className="font-semibold text-white mb-4 font-headline text-sm uppercase tracking-wider">{category}</h4>
                   <ul className="space-y-3">
                     {links.map((link) => (
                       <li key={link.name}>
-                        <Link href={link.href} className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                        <Link href={link.href} className="text-gray-400 hover:text-primary transition-colors text-sm">
                           {link.name}
                         </Link>
                       </li>
@@ -58,24 +58,24 @@ const Footer = () => {
             </div>
 
             <div className="lg:col-span-3">
-               <h4 className="font-semibold text-foreground mb-4 font-headline text-sm uppercase tracking-wider">Stay Updated</h4>
-               <p className="text-muted-foreground text-sm mb-4">Get the latest insights on AI and talent management.</p>
+               <h4 className="font-semibold text-white mb-4 font-headline text-sm uppercase tracking-wider">Stay Updated</h4>
+               <p className="text-gray-400 text-sm mb-4">Get the latest insights on AI and talent management.</p>
                <form className="flex space-x-2">
-                <Input type="email" placeholder="Enter your email" className="flex-1" aria-label="Email for newsletter"/>
+                <Input type="email" placeholder="Enter your email" className="flex-1 bg-gray-800 border-gray-700 text-white placeholder-gray-500" aria-label="Email for newsletter"/>
                 <Button type="submit">Subscribe</Button>
               </form>
             </div>
           </div>
         </div>
 
-        <div className="py-6 border-t">
+        <div className="py-6 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm">
-            <div className="text-muted-foreground mb-4 md:mb-0">
+            <div className="text-gray-500 mb-4 md:mb-0">
               © {new Date().getFullYear()} TalentXp. All rights reserved.
             </div>
             <div className="flex items-center space-x-6">
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Terms of Service</Link>
+              <Link href="#" className="text-gray-500 hover:text-primary transition-colors">Privacy Policy</Link>
+              <Link href="#" className="text-gray-500 hover:text-primary transition-colors">Terms of Service</Link>
             </div>
           </div>
         </div>
