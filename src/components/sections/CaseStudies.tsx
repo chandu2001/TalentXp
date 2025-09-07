@@ -58,7 +58,7 @@ const CaseStudies = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {caseStudiesData.map((study) => (
-            <Card key={study.id} className="overflow-hidden bg-card/50 hover:bg-card transition-colors duration-300 group">
+            <Card key={study.id} className="overflow-hidden bg-card hover:bg-secondary/50 transition-colors duration-300 group">
               <div className="overflow-hidden">
               <Image
                 src={study.image.src}

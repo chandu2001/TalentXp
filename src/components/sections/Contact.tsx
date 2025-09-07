@@ -94,17 +94,17 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4 font-headline">
+          <h2 className="text-4xl font-bold text-foreground mb-4 font-headline">
             Get In <span className="text-primary">Touch</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-body">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body">
             Ready to transform your talent strategy with AI? Let's discuss how TalentXp can help.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-5 gap-12">
           <div className="lg:col-span-3 bg-card p-8 rounded-xl border">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 font-headline">Send us a message</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-6 font-headline">Send us a message</h3>
             <form onSubmit={handleSubmit} className="space-y-6 font-body">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -159,8 +159,8 @@ const Contact = () => {
                       <Icon className="w-6 h-6" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 font-headline">{contact.title}</h4>
-                      <a href={contact.href} className="text-gray-600 hover:text-primary transition-colors font-body">{contact.info}</a>
+                      <h4 className="font-semibold text-foreground font-headline">{contact.title}</h4>
+                      <a href={contact.href} className="text-muted-foreground hover:text-primary transition-colors font-body">{contact.info}</a>
                     </div>
                   </div>
                 );

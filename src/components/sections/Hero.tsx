@@ -3,12 +3,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import { ArrowRight, BrainCircuit, Users, Zap } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   return (
     <section className="relative bg-background pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden">
-      <div className="absolute inset-0 bg-grid-slate-900/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05] dark:bg-bottom dark:border-b dark:border-slate-100/5 [mask-image:linear-gradient(to_bottom,transparent,black)]"></div>
+      <div className="absolute inset-0 bg-grid-slate-100/[0.6] bg-[bottom_1px_center] [mask-image:linear-gradient(to_bottom,transparent,white)]"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center">
           <motion.h1
@@ -65,7 +65,7 @@ const Hero = () => {
               width={1200}
               height={600}
               data-ai-hint="AI collaboration"
-              className="relative rounded-xl shadow-2xl w-full h-auto object-cover opacity-90"
+              className="relative rounded-xl shadow-2xl w-full h-auto object-cover"
             />
           </div>
         </motion.div>

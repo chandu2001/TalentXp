@@ -35,10 +35,10 @@ const Careers = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12">
           <div>
-            <Card className="shadow-lg bg-card border-white/10">
+            <Card className="shadow-lg bg-card border">
               <CardHeader>
                 <CardTitle className="font-headline text-2xl flex items-center">
-                  <Sparkles className="w-6 h-6 mr-2 text-violet-400" />
+                  <Sparkles className="w-6 h-6 mr-2 text-violet-500" />
                   Content Generation Tool
                 </CardTitle>
               </CardHeader>
@@ -106,17 +106,17 @@ const Careers = () => {
             
             {generatedContent && (
               <>
-                <Card className="bg-card border-white/10">
+                <Card className="bg-card border">
                   <CardHeader>
                     <CardTitle className="font-headline flex items-center text-xl">
-                      <Briefcase className="w-5 h-5 mr-2 text-violet-400" /> Job Description
+                      <Briefcase className="w-5 h-5 mr-2 text-violet-500" /> Job Description
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground whitespace-pre-wrap font-body">{generatedContent.jobDescription}</p>
                   </CardContent>
                 </Card>
-                <Card className="bg-card border-white/10">
+                <Card className="bg-card border">
                   <CardHeader>
                     <CardTitle className="font-headline flex items-center text-xl">
                       <Feather className="w-5 h-5 mr-2 text-teal-400" /> Employee Story
@@ -126,10 +126,10 @@ const Careers = () => {
                     <p className="text-muted-foreground whitespace-pre-wrap font-body">{generatedContent.employeeStory}</p>
                   </CardContent>
                 </Card>
-                <Card className="bg-card border-white/10">
+                <Card className="bg-card border">
                   <CardHeader>
                     <CardTitle className="font-headline flex items-center text-xl">
-                      <Building className="w-5 h-5 mr-2 text-violet-400" /> Culture Highlights
+                      <Building className="w-5 h-5 mr-2 text-violet-500" /> Culture Highlights
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -140,7 +140,7 @@ const Careers = () => {
             )}
 
             {!generatedContent && !isLoading && (
-              <div className="flex flex-col items-center justify-center h-full text-center text-muted-foreground bg-card border border-dashed border-white/20 rounded-lg p-8">
+              <div className="flex flex-col items-center justify-center h-full text-center text-muted-foreground bg-card border border-dashed rounded-lg p-8">
                 <Sparkles className="w-12 h-12 mb-4 text-muted-foreground/50" />
                 <h3 className="font-headline text-lg text-foreground">AI-Generated Content Will Appear Here</h3>
                 <p className="font-body mt-2">Fill out the form and click "Generate Content" to see the magic happen!</p>

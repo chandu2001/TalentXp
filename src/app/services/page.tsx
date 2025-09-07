@@ -6,7 +6,7 @@ import { BarChart3, Bot, BrainCircuit } from 'lucide-react';
 
 const ProcessStep = ({ number, title, description }: { number: string; title: string; description: string }) => (
   <div className="flex items-start space-x-4">
-    <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-primary/20 text-primary font-bold text-xl border-2 border-primary">
+    <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary font-bold text-xl border-2 border-primary">
       {number}
     </div>
     <div>
@@ -52,7 +52,7 @@ const OurProcess = () => (
             width={600}
             height={500}
             data-ai-hint="team collaboration"
-            className="rounded-lg shadow-xl opacity-90"
+            className="rounded-lg shadow-xl"
           />
         </div>
       </div>
@@ -61,7 +61,7 @@ const OurProcess = () => (
 );
 
 const AnalyticsSection = () => (
-  <section className="py-20 bg-card border-y">
+  <section className="py-20 bg-secondary/50 border-y">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div>

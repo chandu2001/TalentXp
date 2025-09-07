@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import { Award, Zap, Shield, CheckCircle, Target, Lightbulb, Users, Milestone } from 'lucide-react';
+import { Award, Zap, Shield, CheckCircle, Target, Lightbulb, Users } from 'lucide-react';
 
 const StatCard = ({ icon: Icon, number, label }: { icon: React.ElementType, number: string, label: string }) => (
-  <div className="text-center bg-card p-6 rounded-lg border border-white/10">
-    <div className="flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-br from-violet-500/20 to-teal-500/20 text-violet-400 mx-auto mb-4">
+  <div className="text-center bg-card p-6 rounded-lg border">
+    <div className="flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-br from-violet-500/10 to-teal-500/10 text-violet-500 mx-auto mb-4">
       <Icon className="w-6 h-6" />
     </div>
     <div className="text-3xl font-bold text-foreground mb-2 font-headline">{number}</div>
@@ -12,7 +12,7 @@ const StatCard = ({ icon: Icon, number, label }: { icon: React.ElementType, numb
 );
 
 const ValueCard = ({ icon: Icon, title, children }: { icon: React.ElementType, title: string, children: React.ReactNode }) => (
-  <div className="bg-card p-6 rounded-lg border border-white/10 text-center transform hover:-translate-y-2 transition-transform duration-300">
+  <div className="bg-card p-6 rounded-lg border text-center transform hover:-translate-y-2 transition-transform duration-300">
     <div className="inline-block bg-gradient-to-br from-violet-500 to-teal-400 text-primary-foreground p-4 rounded-full mb-4">
       <Icon className="w-7 h-7" />
     </div>
@@ -28,7 +28,7 @@ const TimelineItem = ({ year, title, children }: { year: string, title: string, 
         <div className="w-2 h-2 rounded-full bg-violet-500"></div>
     </div>
     <div className="pt-0.5">
-       <span className="text-sm font-semibold text-violet-400 font-headline mb-1 block">{year}</span>
+       <span className="text-sm font-semibold text-violet-500 font-headline mb-1 block">{year}</span>
       <h4 className="text-xl font-semibold text-foreground font-headline mb-2">{title}</h4>
       <p className="text-muted-foreground">{children}</p>
     </div>
@@ -76,7 +76,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-card border-y border-white/10">
+      <section className="py-20 bg-secondary/50 border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4 font-headline">Our Values</h2>
@@ -120,7 +120,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-card border-y border-white/10">
+      <section className="py-20 bg-secondary/50 border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat) => (

@@ -9,8 +9,8 @@ type PageHeaderProps = {
 
 const PageHeader = ({ title, breadcrumb, description }: PageHeaderProps) => {
   return (
-    <section className="relative py-24 md:py-32 bg-card border-b border-white/10 overflow-hidden">
-       <div className="absolute inset-0 bg-grid-slate-900/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05] dark:bg-bottom [mask-image:linear-gradient(to_bottom,transparent,black)]"></div>
+    <section className="relative py-24 md:py-32 bg-card border-b overflow-hidden">
+       <div className="absolute inset-0 bg-grid-slate-100/[0.6] bg-[bottom_1px_center] [mask-image:linear-gradient(to_bottom,transparent,white)]"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
