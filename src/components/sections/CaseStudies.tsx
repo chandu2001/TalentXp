@@ -13,30 +13,30 @@ const caseStudiesData = [
     title: "Fortune 500 Talent Transformation",
     company: "Global Technology Corp",
     industry: "Technology",
-    challenge: "Reducing time-to-hire from 45 days to 18 days while improving candidate quality.",
-    solution: "AI-powered candidate matching and automated screening system.",
+    challenge: "A Fortune 500 tech giant was struggling with a lengthy and inefficient recruitment process. Their average time-to-hire was 45 days, leading to the loss of top candidates and increased hiring costs. They needed to significantly accelerate hiring without compromising on the quality of talent.",
+    solution: "We deployed our flagship AI-powered talent acquisition platform, customizing its matching algorithms to their specific job taxonomies. The system automated resume screening, identified best-fit candidates from a pool of over 50,000 applicants, and provided predictive analytics on candidate success.",
+    results: "Reduced average time-to-hire by 60% (from 45 to 18 days). Increased new hire quality score by 85% based on 6-month performance reviews. Saved an estimated $1.2M in annual recruitment costs.",
     image: { src: "https://picsum.photos/seed/1/800/600", hint: "corporate office" },
-    summary: "Implemented an AI-powered recruitment platform, reducing time-to-hire by 60% and increasing candidate quality score by 85% for a Fortune 500 tech giant."
   },
   {
     id: 2,
     title: "Startup Scale-up Success",
     company: "Fintech Innovators Inc.",
     industry: "Financial Services",
-    challenge: "Scaling the team from 50 to over 200 employees in one year while maintaining cultural alignment.",
-    solution: "Custom AI talent analytics and cultural fit assessment platform.",
+    challenge: "A rapidly growing fintech startup needed to scale its team from 50 to over 200 employees within a year. Their primary challenge was maintaining their unique company culture and ensuring that new hires were not only skilled but also aligned with their values of innovation and collaboration.",
+    solution: "We developed and implemented a custom AI-driven cultural fit assessment tool. This platform analyzed candidate responses to situational questions and compared them against the company's core value profile, providing recruiters with a 'cultural alignment score' for each applicant.",
+    results: "Enabled a 4x team growth in one year while maintaining a 92% employee retention rate. The cultural fit assessment tool achieved a 95% accuracy in predicting strong team integration. New hire engagement scores were 25% higher than the industry average.",
     image: { src: "https://picsum.photos/seed/2/800/600", hint: "startup meeting" },
-    summary: "Developed a custom AI talent analytics platform for a fintech startup, enabling a 4x team growth in one year with a 92% cultural fit accuracy."
   },
   {
     id: 3,
     title: "Enterprise Analytics Implementation",
     company: "Global Manufacturing Co.",
     industry: "Manufacturing",
-    challenge: "Optimizing workforce performance and reducing turnover across 15+ global locations.",
-    solution: "Comprehensive AI-driven workforce analytics and optimization platform.",
+    challenge: "A global manufacturing conglomerate with over 15 locations worldwide faced challenges in workforce optimization and high employee turnover, which was impacting production efficiency. They lacked the tools to gain deep insights into performance and retention drivers across their diverse workforce.",
+    solution: "We deployed a comprehensive, AI-driven workforce analytics platform that integrated data from their existing HRIS, payroll, and performance management systems. The platform provided predictive insights on turnover risk, identified key drivers of performance, and visualized operational efficiency metrics in real-time.",
+    results: "Reduced employee turnover by 55% within the first 18 months, leading to significant cost savings. Boosted overall operational efficiency by 45% through data-driven staffing and development decisions. Provided leadership with actionable insights, improving strategic workforce planning.",
     image: { src: "https://picsum.photos/seed/3/800/600", hint: "factory technology" },
-    summary: "Deployed a global workforce analytics solution for a manufacturing conglomerate, boosting operational efficiency by 45% and reducing employee turnover by 55%."
   }
 ];
 
@@ -47,7 +47,7 @@ const CaseStudies = () => {
   const handleGenerateSummary = async (study: typeof caseStudiesData[0]) => {
     if (summaries[study.id]) return; 
     setLoading(prev => ({ ...prev, [study.id]: true }));
-    const textToSummarize = `Challenge: ${study.challenge}\nSolution: ${study.solution}\nSummary: ${study.summary}`;
+    const textToSummarize = `Challenge: ${study.challenge}\nSolution: ${study.solution}\nResults: ${study.results}`;
     const summary = await getCaseStudySummary(textToSummarize);
     setSummaries(prev => ({ ...prev, [study.id]: summary }));
     setLoading(prev => ({ ...prev, [study.id]: false }));
@@ -74,7 +74,7 @@ const CaseStudies = () => {
                 <h3 className="text-xl font-semibold text-foreground mb-2 font-headline">
                   {study.title}
                 </h3>
-                <p className="text-muted-foreground font-body text-sm mb-4">{study.summary}</p>
+                <p className="text-muted-foreground font-body text-sm mb-4">{study.results}</p>
                  <div className="mt-4 p-4 bg-background rounded-lg border">
                   <h4 className="font-semibold text-foreground mb-2 flex items-center text-sm">
                     <Sparkles className="w-4 h-4 mr-2 text-primary" />
