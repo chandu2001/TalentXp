@@ -5,6 +5,7 @@ import { BarChart, Briefcase, CheckCircle, LogOut } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import toast from 'react-hot-toast';
+import { useEffect } from 'react';
 
 const StatCard = ({ icon: Icon, title, value }: { icon: React.ElementType; title: string; value: string }) => (
   <Card className="border">
@@ -33,7 +34,16 @@ const ActivityItem = ({ title, description }: { title: string; description: stri
 export default function EmployeeDashboardPage() {
   const router = useRouter();
 
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (isLoggedIn !== 'true') {
+      router.replace('/employee-login');
+    }
+  }, [router]);
+
+
   const handleSignOut = () => {
+    localStorage.removeItem('isLoggedIn');
     toast.success('Signed out successfully.');
     router.push('/employee-login');
   };

@@ -8,7 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
@@ -22,6 +22,15 @@ type LoginFormValues = z.infer<typeof loginSchema>;
 export default function EmployeeLoginPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
+  
+  useEffect(() => {
+    // Redirect to dashboard if already logged in
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (isLoggedIn === 'true') {
+      router.replace('/employee-dashboard');
+    }
+  }, [router]);
+
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -34,6 +43,7 @@ export default function EmployeeLoginPage() {
     setIsSubmitting(true);
 
     if (data.email === 'employee@talentxp.com' && data.password === 'password123') {
+      localStorage.setItem('isLoggedIn', 'true');
       toast.success('Login successful! Redirecting...');
       router.push('/employee-dashboard');
     } else {
