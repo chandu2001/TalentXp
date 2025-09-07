@@ -34,7 +34,6 @@ const Header = () => {
     { name: 'Solutions', href: '/solutions' },
     { name: 'Case Studies', href: '/case-studies' },
     { name: 'Careers', href: '/careers' },
-    { name: 'Video Generation', href: '/video-generation'}
   ];
 
   const navigation = [
