@@ -6,6 +6,7 @@ import Footer from '@/components/sections/Footer';
 import { Poppins, PT_Sans } from 'next/font/google';
 import { AnimatePresence, motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
+import Chatbot from '@/components/chatbot/Chatbot';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -43,6 +44,7 @@ export default function RootLayout({
           </motion.main>
         </AnimatePresence>
         <Footer />
+        <Chatbot />
       </body>
     </html>
   );

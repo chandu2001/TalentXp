@@ -3,3 +3,4 @@ config();
 
 import '@/ai/flows/ai-summarize-case-studies.ts';
 import '@/ai/flows/ai-careers-content-generation.ts';
+import '@/ai/flows/ai-chatbot.ts';
