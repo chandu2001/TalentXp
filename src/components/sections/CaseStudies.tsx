@@ -1,10 +1,12 @@
 'use client';
 import Image from 'next/image';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Sparkles, Loader2 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { useState } from 'react';
+import { getCaseStudySummary } from '@/app/actions';
 
 const caseStudiesData = [
   {
@@ -27,54 +29,111 @@ const caseStudiesData = [
     results: "Successfully launched the app to the App Store, achieving 100,000 downloads in the first three months. The app received a 4.8-star rating from users.",
     image: { src: "https://picsum.photos/seed/startup-tech/800/600", hint: "startup collaboration" },
   },
+  {
+    id: 3,
+    title: "E-commerce Platform Overhaul",
+    company: "Global Retail Co.",
+    industry: "Retail",
+    challenge: "An international retail company's online platform was outdated, leading to slow performance, a poor user experience, and declining sales.",
+    solution: "We re-architected their e-commerce platform using modern microservices and a headless CMS, integrated with a new payment gateway and logistics API.",
+    results: "Page load times improved by 60%, mobile conversion rates increased by 35%, and online revenue grew by 25% within the first six months.",
+    image: { src: "https://picsum.photos/seed/retail-success/800/600", hint: "retail online" },
+  },
+  {
+    id: 4,
+    title: "Healthcare Cloud Migration",
+    company: "Secure Health Systems",
+    industry: "Healthcare",
+    challenge: "A major healthcare provider needed to migrate its on-premise data centers to a secure, HIPAA-compliant cloud environment to improve scalability and data accessibility for practitioners.",
+    solution: "Our cloud engineering team executed a phased migration to a hybrid cloud solution, implementing robust security controls, data encryption, and a disaster recovery plan.",
+    results: "Achieved 99.99% uptime, reduced infrastructure costs by 30%, and enabled secure, real-time access to patient data for authorized personnel, improving patient care.",
+    image: { src: "https://picsum.photos/seed/healthcare-tech/800/600", hint: "healthcare technology" },
+  },
 ];
 
-const CaseStudies = () => {
+const CaseStudyCard = ({ study, index }: { study: typeof caseStudiesData[0], index: number }) => {
+  const [summary, setSummary] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
+  const handleGenerateSummary = async () => {
+    setIsLoading(true);
+    setSummary('');
+    const fullText = `Challenge: ${study.challenge} Solution: ${study.solution} Results: ${study.results}`;
+    const generatedSummary = await getCaseStudySummary({ caseStudyText: fullText });
+    setSummary(generatedSummary);
+    setIsLoading(false);
+  };
+
+  return (
+    <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div className={cn("order-1 group overflow-hidden rounded-lg shadow-xl", index % 2 === 0 ? "md:order-1" : "md:order-2")}>
+         <Image
+          src={study.image.src}
+          alt={study.title}
+          width={800}
+          height={600}
+          data-ai-hint={study.image.hint}
+          className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+      </div>
+      <div className={cn("order-2", index % 2 === 0 ? "md:order-2" : "md:order-1")}>
+        <Badge variant="secondary" className="mb-2">{study.industry}</Badge>
+        <h3 className="text-2xl font-bold text-foreground mb-4 font-headline">
+          {study.title}
+        </h3>
+        <div className="space-y-6 text-muted-foreground font-body">
+          <div>
+            <h4 className="font-semibold text-foreground mb-1">The Challenge</h4>
+            <p>{study.challenge}</p>
+          </div>
+           <div>
+            <h4 className="font-semibold text-foreground mb-1">The Solution</h4>
+            <p>{study.solution}</p>
+          </div>
+           <div>
+            <h4 className="font-semibold text-foreground mb-1">The Results</h4>
+            <p>{study.results}</p>
+          </div>
+          {summary && (
+            <div className="p-4 bg-primary/10 rounded-lg border border-primary/20">
+              <h4 className="font-semibold text-primary mb-2 flex items-center"><Sparkles className="w-4 h-4 mr-2" /> AI Summary</h4>
+              <p className="text-primary/90">{summary}</p>
+            </div>
+          )}
+        </div>
+         <div className="mt-6 flex flex-wrap gap-4">
+            <Button asChild>
+              <Link href="/contact">
+                Learn More <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+             <Button variant="outline" onClick={handleGenerateSummary} disabled={isLoading}>
+              {isLoading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Generating...
+                </>
+              ) : (
+                <>
+                  <Sparkles className="mr-2 h-4 w-4" />
+                  Generate AI Summary
+                </>
+              )}
+            </Button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+
+const CaseStudies = () => {
   return (
     <section id="case-studies" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-20">
           {caseStudiesData.map((study, index) => (
-            <div key={study.id} className="grid md:grid-cols-2 gap-12 items-center">
-              <div className={cn("order-1 group overflow-hidden rounded-lg shadow-xl", index % 2 === 0 ? "md:order-1" : "md:order-2")}>
-                 <Image
-                  src={study.image.src}
-                  alt={study.title}
-                  width={800}
-                  height={600}
-                  data-ai-hint={study.image.hint}
-                  className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-              <div className={cn("order-2", index % 2 === 0 ? "md:order-2" : "md:order-1")}>
-                <Badge variant="secondary" className="mb-2">{study.industry}</Badge>
-                <h3 className="text-2xl font-bold text-foreground mb-4 font-headline">
-                  {study.title}
-                </h3>
-                <div className="space-y-6 text-muted-foreground font-body">
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">The Challenge</h4>
-                    <p>{study.challenge}</p>
-                  </div>
-                   <div>
-                    <h4 className="font-semibold text-foreground mb-1">The Solution</h4>
-                    <p>{study.solution}</p>
-                  </div>
-                   <div>
-                    <h4 className="font-semibold text-foreground mb-1">The Results</h4>
-                    <p>{study.results}</p>
-                  </div>
-                </div>
-                 <div className="mt-6">
-                    <Button asChild>
-                      <Link href="/contact">
-                        Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                </div>
-              </div>
-            </div>
+            <CaseStudyCard key={study.id} study={study} index={index} />
           ))}
         </div>
       </div>
