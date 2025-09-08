@@ -7,7 +7,7 @@ export default function AboutPage() {
       <PageHeader
         title="About Us"
         breadcrumb="Home / About Us"
-        description="We are pioneers in AI-driven talent solutions, transforming how organizations discover, develop, and deploy exceptional talent through intelligent technology."
+        description="Learn more about our mission and the team that drives our innovative IT solutions forward."
       />
       <About />
     </>

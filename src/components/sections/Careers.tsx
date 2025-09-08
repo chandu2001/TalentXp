@@ -9,6 +9,9 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
+// Note: This component is currently not used in the application,
+// but is kept for potential future use if GenAI features are re-introduced.
+
 const Careers = () => {
   const [jobTitle, setJobTitle] = useState('AI/ML Engineer');
   const [companyCulture, setCompanyCulture] = useState('A fast-paced, innovative environment where collaboration and continuous learning are highly valued. We encourage creative problem-solving and offer opportunities for professional growth.');
@@ -21,12 +24,13 @@ const Careers = () => {
     e.preventDefault();
     setIsLoading(true);
     setGeneratedContent(null);
-    const content = await getCareersContent({
-      jobTitle,
-      companyCulture,
-      employeeStoryIdea
-    });
-    setGeneratedContent(content);
+    // The getCareersContent function is currently disabled.
+    // const content = await getCareersContent({
+    //   jobTitle,
+    //   companyCulture,
+    //   employeeStoryIdea
+    // });
+    // setGeneratedContent(content);
     setIsLoading(false);
   };
 
@@ -76,7 +80,7 @@ const Careers = () => {
                       className="mt-2"
                     />
                   </div>
-                  <Button type="submit" disabled={isLoading} className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90">
+                  <Button type="submit" disabled={true} className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90">
                     {isLoading ? (
                       <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -85,7 +89,7 @@ const Careers = () => {
                     ) : (
                       <>
                         <Send className="mr-2 h-4 w-4" />
-                        Generate Content
+                        Generate Content (Disabled)
                       </>
                     )}
                   </Button>
@@ -143,7 +147,7 @@ const Careers = () => {
               <div className="flex flex-col items-center justify-center h-full text-center text-muted-foreground bg-card border border-dashed rounded-lg p-8">
                 <Sparkles className="w-12 h-12 mb-4 text-muted-foreground/50" />
                 <h3 className="font-headline text-lg text-foreground">AI-Generated Content Will Appear Here</h3>
-                <p className="font-body mt-2">Fill out the form and click "Generate Content" to see the magic happen!</p>
+                <p className="font-body mt-2">The AI content generation tool is currently disabled.</p>
               </div>
             )}
           </div>

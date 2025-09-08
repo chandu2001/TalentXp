@@ -63,17 +63,10 @@ const TeamMemberCard = ({ name, title, imageUrl, linkedinUrl }: { name: string, 
 );
 
 const About = () => {
-  const stats = [
-    { number: "500+", label: "Successful AI Implementations", icon: Zap },
-    { number: "95%", label: "Client Satisfaction Rate", icon: Award },
-    { number: "50+", label: "Enterprise Clients", icon: Shield },
-    { number: "200%", label: "Average ROI Improvement", icon: CheckCircle }
-  ];
-  
   const teamMembers = [
-      { name: 'Dr. Evelyn Reed', title: 'Founder & CEO', imageUrl: 'https://picsum.photos/seed/woman-ceo/128/128', linkedinUrl: '#' },
-      { name: 'Marcus Chen', title: 'Chief Technology Officer', imageUrl: 'https://picsum.photos/seed/man-cto/128/128', linkedinUrl: '#' },
-      { name: 'Aria Sharma', title: 'Head of Talent Strategy', imageUrl: 'https://picsum.photos/seed/woman-strategy/128/128', linkedinUrl: '#' },
+      { name: 'John Doe', title: 'Founder & CEO', imageUrl: 'https://picsum.photos/seed/man-ceo/128/128', linkedinUrl: '#' },
+      { name: 'Jane Smith', title: 'Chief Technology Officer', imageUrl: 'https://picsum.photos/seed/woman-cto/128/128', linkedinUrl: '#' },
+      { name: 'Peter Jones', title: 'Head of Solutions', imageUrl: 'https://picsum.photos/seed/man-solutions/128/128', linkedinUrl: '#' },
   ];
 
   return (
@@ -83,12 +76,13 @@ const About = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
-                <h3 className="text-3xl font-bold text-foreground mb-6 font-headline">Our Mission & Vision</h3>
+                <h3 className="text-3xl font-bold text-foreground mb-6 font-headline">Company Overview</h3>
                 <p className="text-muted-foreground text-lg leading-relaxed mb-6 font-body">
-                  Our mission is to empower organizations to build future-ready workforces by harnessing the power of data-driven talent intelligence. We envision a world where every talent decision is smart, fair, and impactful, creating opportunities for individuals and sustainable growth for businesses.
+                  TalentXP TECHNOLOGIES is one of the fastest growing IT Services and Solutions Company. We emphasize on acquiring an in-depth knowledge of the customer's context and needs, and design solutions fine-tuned to those needs.
                 </p>
+                <h4 className="text-2xl font-bold text-foreground mb-4 font-headline">Our Mission</h4>
                 <p className="text-muted-foreground leading-relaxed font-body">
-                  We are a team of passionate technologists, data scientists, and HR experts dedicated to solving the most complex challenges in talent acquisition and management. We believe in the transformative power of AI to create more efficient, effective, and equitable workplaces.
+                  To provide innovative, high quality and best-in-class IT Consulting and IT Solutions & Services to our customers, enabling them to achieve their business objectives.
                 </p>
               </div>
               <div>
@@ -124,13 +118,13 @@ const About = () => {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <ValueCard icon={<ServiceIcon variant="genai" className="w-7 h-7" />} title="Innovation">
-                We relentlessly pursue cutting-edge solutions that push the boundaries of what's possible in talent technology.
+                We relentlessly pursue cutting-edge solutions that push the boundaries of what's possible in technology.
               </ValueCard>
               <ValueCard icon={<ServiceIcon variant="acquisition" className="w-7 h-7" />} title="Customer Centricity">
                 We build collaborative partnerships with our clients, acting as an extension of their team to achieve shared goals.
               </ValueCard>
               <ValueCard icon={<ServiceIcon variant="strategic" className="w-7 h-7" />} title="Integrity">
-                We operate with transparency and ethical responsibility, ensuring our AI is fair, unbiased, and beneficial.
+                We operate with transparency and ethical responsibility, ensuring our solutions are reliable and beneficial.
               </ValueCard>
             </div>
           </div>
@@ -150,42 +144,6 @@ const About = () => {
                 {teamMembers.map((member) => (
                     <TeamMemberCard key={member.name} {...member} />
                 ))}
-            </div>
-          </div>
-        </section>
-      </AnimatedSection>
-
-      <AnimatedSection>
-        <section className="py-20 bg-secondary/50 border-y">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-foreground mb-4 font-headline">Our Journey</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body">
-                Tracing our path from a bold idea to an industry leader.
-              </p>
-            </div>
-            <div className="space-y-12 max-w-3xl mx-auto">
-              <TimelineItem year="2020" title="The Idea is Born">
-                TalentXp was founded with the vision of transforming HR with artificial intelligence, starting with a small team of passionate engineers and HR experts.
-              </TimelineItem>
-               <TimelineItem year="2022" title="First Enterprise Client">
-                We partnered with our first Fortune 500 company, deploying a customized AI recruitment platform that reduced their time-to-hire by 40%.
-              </TimelineItem>
-               <TimelineItem year="2024" title="Expanding Our Solutions">
-                Launched our advanced talent analytics suite and GenAI tools, empowering organizations with deeper insights and content creation capabilities.
-              </TimelineItem>
-            </div>
-          </div>
-        </section>
-      </AnimatedSection>
-
-      <AnimatedSection>
-        <section className="py-20 bg-background">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              {stats.map((stat) => (
-                <StatCard key={stat.label} {...stat} />
-              ))}
             </div>
           </div>
         </section>

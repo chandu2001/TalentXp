@@ -17,11 +17,10 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-6xl font-extrabold text-foreground font-headline tracking-tight leading-tight"
           >
-            Empowering Businesses with{' '}
             <span className="text-primary">
-              AI-Driven Talent
+              Profit Performance
             </span>{' '}
-            Solutions
+            Management
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -29,7 +28,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground font-body"
           >
-            Leading AI/ML consulting and talent acquisition platform. Transforming how businesses discover, develop, and deploy exceptional talent through intelligent technology.
+            Financial Planning, Budgeting and Business Performance Management Solution, Specially Designed for Business Owners, Directors, Managers and Management Consultants.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -39,7 +38,7 @@ const Hero = () => {
           >
             <Button asChild size="lg">
               <Link href="/services">
-                Explore Solutions <ArrowRight className="ml-2 h-5 w-5" />
+                Explore Our Services <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg">
@@ -61,11 +60,11 @@ const Hero = () => {
             </div>
             <div className="overflow-hidden rounded-xl shadow-2xl">
               <Image
-                src="https://picsum.photos/seed/ai-tech/1200/600"
-                alt="AI and human collaboration dashboard"
+                src="https://picsum.photos/seed/business-performance/1200/600"
+                alt="Business Performance Dashboard"
                 width={1200}
                 height={600}
-                data-ai-hint="AI neural network"
+                data-ai-hint="business performance"
                 className="relative w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>

@@ -1,67 +1,35 @@
 'use client';
-import { useState } from 'react';
 import Image from 'next/image';
-import { ArrowRight, Sparkles, Loader2 } from 'lucide-react';
-import { getCaseStudySummary } from '@/app/actions';
+import { ArrowRight } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const caseStudiesData = [
   {
     id: 1,
-    title: "Fortune 500 Talent Transformation",
+    title: "Fortune 500 IT Transformation",
     company: "Global Technology Corp",
     industry: "Technology",
-    challenge: "A Fortune 500 tech giant was struggling with a lengthy and inefficient recruitment process. Their average time-to-hire was 45 days, leading to the loss of top candidates and increased hiring costs. They needed to significantly accelerate hiring without compromising on the quality of talent.",
-    solution: "We deployed our flagship AI-powered talent acquisition platform, customizing its matching algorithms to their specific job taxonomies. The system automated resume screening, identified best-fit candidates from a pool of over 50,000 applicants, and provided predictive analytics on candidate success.",
-    results: "Reduced average time-to-hire by 60% (from 45 to 18 days). Increased new hire quality score by 85% based on 6-month performance reviews. Saved an estimated $1.2M in annual recruitment costs.",
-    image: { src: "https://picsum.photos/seed/business-tech/800/600", hint: "corporate office team" },
+    challenge: "A Fortune 500 tech giant was struggling with a legacy IT infrastructure that was slow and inefficient, hindering their ability to innovate and respond to market changes.",
+    solution: "We deployed a comprehensive IT modernization strategy, including migrating their systems to Windows Azure, implementing a new SharePoint 2010 portal, and developing custom .NET applications.",
+    results: "Reduced operational costs by 40%. Increased development velocity by 75%. Improved system reliability and security across the board.",
+    image: { src: "https://picsum.photos/seed/business-tech/800/600", hint: "corporate office" },
   },
   {
     id: 2,
-    title: "Startup Scale-up Success",
+    title: "Startup Mobile App Launch",
     company: "Fintech Innovators Inc.",
     industry: "Financial Services",
-    challenge: "A rapidly growing fintech startup needed to scale its team from 50 to over 200 employees within a year. Their primary challenge was maintaining their unique company culture and ensuring that new hires were not only skilled but also aligned with their values of innovation and collaboration.",
-    solution: "We developed and implemented a custom AI-driven cultural fit assessment tool. This platform analyzed candidate responses to situational questions and compared them against the company's core value profile, providing recruiters with a 'cultural alignment score' for each applicant.",
-    results: "Enabled a 4x team growth in one year while maintaining a 92% employee retention rate. The cultural fit assessment tool achieved a 95% accuracy in predicting strong team integration. New hire engagement scores were 25% higher than the industry average.",
-    image: { src: "https://picsum.photos/seed/startup-tech/800/600", hint: "startup office collaboration" },
+    challenge: "A rapidly growing fintech startup needed to develop a secure and scalable iPhone application to serve its growing customer base, but lacked in-house mobile development expertise.",
+    solution: "Our mobile development team designed and built a native iPhone application from the ground up, using Xcode and Cocoa Touch, with a focus on usability and performance.",
+    results: "Successfully launched the app to the App Store, achieving 100,000 downloads in the first three months. The app received a 4.8-star rating from users.",
+    image: { src: "https://picsum.photos/seed/startup-tech/800/600", hint: "startup collaboration" },
   },
-  {
-    id: 3,
-    title: "Enterprise Analytics Implementation",
-    company: "Global Manufacturing Co.",
-    industry: "Manufacturing",
-    challenge: "A global manufacturing conglomerate with over 15 locations worldwide faced challenges in workforce optimization and high employee turnover, which was impacting production efficiency. They lacked the tools to gain deep insights into performance and retention drivers across their diverse workforce.",
-    solution: "We deployed a comprehensive, AI-driven workforce analytics platform that integrated data from their existing HRIS, payroll, and performance management systems. The platform provided predictive insights on turnover risk, identified key drivers of performance, and visualized operational efficiency metrics in real-time.",
-    results: "Reduced employee turnover by 55% within the first 18 months, leading to significant cost savings. Boosted overall operational efficiency by 45% through data-driven staffing and development decisions. Provided leadership with actionable insights, improving strategic workforce planning.",
-    image: { src: "https://picsum.photos/seed/enterprise-business/800/600", hint: "enterprise operations hub" },
-  },
-  {
-    id: 4,
-    title: "Healthcare Hiring Accuracy",
-    company: "MediCare Hospital Network",
-    industry: "Healthcare",
-    challenge: "A large hospital network needed to improve the accuracy and efficiency of hiring specialized medical staff, from nurses to surgeons. The high stakes of the roles required a rigorous vetting process that was slow and resource-intensive, causing delays in staffing critical positions.",
-    solution: "We implemented an AI-powered credential verification and skill-matching system. The tool automatically cross-referenced candidate qualifications with role requirements and professional databases, flagging the most suitable candidates and reducing manual review time.",
-    results: "Improved hiring accuracy for critical medical roles by 98%. Reduced credential verification time by 75%, allowing for faster onboarding of essential staff. Decreased administrative workload on HR by 50%, freeing them to focus on candidate engagement.",
-    image: { src: "https://picsum.photos/seed/corporate-healthcare/800/600", hint: "hospital interior" },
-  }
 ];
 
 const CaseStudies = () => {
-  const [summaries, setSummaries] = useState<Record<number, string>>({});
-  const [loading, setLoading] = useState<Record<number, boolean>>({});
-
-  const handleGenerateSummary = async (study: typeof caseStudiesData[0]) => {
-    if (summaries[study.id]) return;
-    setLoading(prev => ({ ...prev, [study.id]: true }));
-    const textToSummarize = `Challenge: ${study.challenge}\nSolution: ${study.solution}\nResults: ${study.results}`;
-    const summary = await getCaseStudySummary(textToSummarize);
-    setSummaries(prev => ({ ...prev, [study.id]: summary }));
-    setLoading(prev => ({ ...prev, [study.id]: false }));
-  };
 
   return (
     <section id="case-studies" className="py-20 bg-background">
@@ -98,30 +66,12 @@ const CaseStudies = () => {
                     <p>{study.results}</p>
                   </div>
                 </div>
-                 <div className="mt-6 p-4 bg-secondary/50 rounded-lg border">
-                  <h4 className="font-semibold text-foreground mb-2 flex items-center text-sm">
-                    <Sparkles className="w-4 h-4 mr-2 text-primary" />
-                    AI-Generated Summary
-                  </h4>
-                  {summaries[study.id] && (
-                    <p className="text-primary/90 text-sm italic font-body">{summaries[study.id]}</p>
-                  )}
-                  {loading[study.id] && (
-                     <div className="flex items-center text-sm text-muted-foreground">
-                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                        Generating...
-                      </div>
-                  )}
-                  {!summaries[study.id] && !loading[study.id] && (
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      onClick={() => handleGenerateSummary(study)}
-                    >
-                      Generate with AI
-                      <ArrowRight className="ml-1 w-4 h-4" />
+                 <div className="mt-6">
+                    <Button asChild>
+                      <Link href="/contact">
+                        Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
                     </Button>
-                  )}
                 </div>
               </div>
             </div>

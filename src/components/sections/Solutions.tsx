@@ -32,39 +32,33 @@ const Solutions = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl font-bold text-foreground font-headline mb-4">
-                  Smarter Talent Acquisition
+                  Enterprise Solutions
                 </h2>
                 <p className="text-muted-foreground mb-8">
-                  Our AI-powered platform streamlines your entire recruitment process. From intelligent sourcing to automated screening and predictive analytics, we help you find and hire the best-fit candidates faster and more effectively than ever before.
+                  Our team of professionals are recognized experts and experienced consultants on Microsoft's SharePoint Products and Enterprise Portal & Content Management.
                 </p>
                 <div className="space-y-6">
                   <SolutionFeature
-                    icon={<ServiceIcon variant="acquisition" className="w-6 h-6" />}
-                    title="Intelligent Candidate Matching"
+                    icon={<ServiceIcon variant="strategic" className="w-6 h-6" />}
+                    title="SharePoint 2010"
                   >
-                    AI algorithms that go beyond keywords to match candidates based on skills, experience, and cultural fit.
+                    We provide expert consulting and development for Microsoft SharePoint to enhance collaboration and content management.
                   </SolutionFeature>
                   <SolutionFeature
-                    icon={<ServiceIcon variant="genai" className="w-6 h-6" />}
-                    title="Automated Screening"
+                    icon={<ServiceIcon variant="consulting" className="w-6 h-6" />}
+                    title="Enterprise Portal & Content Mgmt"
                   >
-                    Save hundreds of hours by automating resume screening and initial candidate vetting.
-                  </SolutionFeature>
-                   <SolutionFeature
-                    icon={<ServiceIcon variant="strategic" className="w-6 h-6" />}
-                    title="Predictive Success Modeling"
-                  >
-                    Identify candidates with the highest potential for long-term success in your organization.
+                    Strategies, methods and tools to capture, manage, store, preserve, and deliver information across the organization.
                   </SolutionFeature>
                 </div>
               </div>
                <div className="group overflow-hidden rounded-lg shadow-xl">
                 <Image
-                  src="https://picsum.photos/seed/recruitment-tech/600/500"
-                  alt="AI helping with recruitment"
+                  src="https://picsum.photos/seed/enterprise-solution/600/500"
+                  alt="Enterprise portal management"
                   width={600}
                   height={500}
-                  data-ai-hint="AI recruitment"
+                  data-ai-hint="enterprise tech"
                   className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
@@ -79,39 +73,33 @@ const Solutions = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
                <div className="group overflow-hidden rounded-lg shadow-xl md:order-last">
                 <Image
-                  src="https://picsum.photos/seed/analytics-dashboard/600/500"
-                  alt="Data analytics dashboard"
+                  src="https://picsum.photos/seed/mobile-dev/600/500"
+                  alt="Mobile application development"
                   width={600}
                   height={500}
-                  data-ai-hint="data dashboard"
+                  data-ai-hint="mobile development"
                   className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
               <div className="md:order-first">
                 <h2 className="text-3xl font-bold text-foreground font-headline mb-4">
-                  AI-Driven Analytics & Insights
+                  Business & Mobile Solutions
                 </h2>
                 <p className="text-muted-foreground mb-8">
-                  Unlock the full potential of your workforce data. Our analytics platform provides deep, actionable insights into performance, engagement, and retention, empowering you to make strategic talent decisions with confidence.
+                  From lead management to custom iPhone application development, we build solutions that drive business growth and efficiency.
                 </p>
                 <div className="space-y-6">
                   <SolutionFeature
-                    icon={<ServiceIcon variant="analytics" className="w-6 h-6" />}
-                    title="Workforce Optimization"
+                    icon={<ServiceIcon variant="acquisition" className="w-6 h-6" />}
+                    title="Lead Management"
                   >
-                    Identify skill gaps, optimize team structures, and plan for future talent needs.
+                    The more knowledge you have about your leads, the easier it is to convert them to customers. Integrated lead management is key.
                   </SolutionFeature>
                   <SolutionFeature
-                     icon={<ServiceIcon variant="training" className="w-6 h-6" />}
-                    title="Performance & Engagement Tracking"
+                     icon={<ServiceIcon variant="genai" className="w-6 h-6" />}
+                    title="iPhone App Development"
                   >
-                    Visualize performance trends and understand the key drivers of employee engagement.
-                  </SolutionFeature>
-                   <SolutionFeature
-                    icon={<ServiceIcon variant="consulting" className="w-6 h-6" />}
-                    title="Diversity & Inclusion Analytics"
-                  >
-                    Track D&I metrics to build a more equitable and inclusive workplace.
+                    Our iPhone application developers are experienced in Apple's developer tools like Xcode, Cocoa Touch framework and Objective C.
                   </SolutionFeature>
                 </div>
               </div>

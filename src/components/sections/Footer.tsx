@@ -6,10 +6,10 @@ import { Logo } from '../ui/Logo';
 const Footer = () => {
   const footerLinks = {
     'Services': [
-      { name: 'AI/ML Consulting', href: '/services' },
-      { name: 'Talent Acquisition', href: '/services' },
-      { name: 'GenAI Solutions', href: '/solutions' },
-      { name: 'Talent Analytics', href: '/services' },
+      { name: 'IT Services', href: '/services' },
+      { name: 'Quality Assurance', href: '/services' },
+      { name: 'Usability Consulting', href: '/services' },
+      { name: 'Cloud Services', href: '/services' },
     ],
     'Company': [
       { name: 'About Us', href: '/about' },
@@ -17,11 +17,9 @@ const Footer = () => {
       { name: 'Solutions', href: '/solutions' },
       { name: 'Contact Us', href: '/contact' },
     ],
-    'Resources': [
-      { name: 'Blog', href: '#' },
-      { name: 'Whitepapers', href: '#' },
-      { name: 'Community', href: '#' },
-      { name: 'Partners', href: '#' },
+    'Careers': [
+      { name: 'Open Positions', href: '/careers' },
+      { name: 'Culture', href: '/careers' },
     ]
   };
 
@@ -36,7 +34,7 @@ const Footer = () => {
                 <span className="text-2xl font-bold font-headline text-foreground">TalentXp</span>
               </Link>
               <p className="text-muted-foreground mb-6 leading-relaxed text-sm">
-                Empowering businesses with AI-driven talent solutions.
+                Innovative, high quality and best-in-class IT Consulting and IT Solutions & Services.
               </p>
             </div>
 
@@ -59,7 +57,7 @@ const Footer = () => {
 
             <div className="lg:col-span-3">
                <h4 className="font-semibold text-foreground mb-4 font-headline text-sm uppercase tracking-wider">Stay Updated</h4>
-               <p className="text-muted-foreground text-sm mb-4">Get the latest insights on AI and talent management.</p>
+               <p className="text-muted-foreground text-sm mb-4">Get the latest insights on IT services and solutions.</p>
                <form className="flex space-x-2">
                 <Input type="email" placeholder="Enter your email" className="flex-1 bg-background" aria-label="Email for newsletter"/>
                 <Button type="submit">Subscribe</Button>
@@ -71,7 +69,7 @@ const Footer = () => {
         <div className="py-6 border-t">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm">
             <div className="text-muted-foreground mb-4 md:mb-0">
-              © {new Date().getFullYear()} TalentXp. All rights reserved.
+              © {new Date().getFullYear()} TalentXp Technologies. All rights reserved.
             </div>
             <div className="flex items-center space-x-6">
               <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</Link>

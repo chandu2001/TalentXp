@@ -1,5 +1,4 @@
 import { ServiceIcon } from '../ui/ServiceIcon';
-import AnimatedSection from '../ui/AnimatedSection';
 
 const FeatureCard = ({ icon, title, children }: { icon: React.ReactNode, title: string, children: React.ReactNode }) => (
   <div className="bg-card p-8 rounded-lg border transform transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-2">
@@ -24,18 +23,18 @@ const WhyChooseUs = () => {
             Why Partner with <span className="text-primary">TalentXp</span>?
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body">
-            We are more than a technology provider; we are your strategic partner in building a future-ready workforce. Our commitment is to deliver intelligent, fair, and impactful talent solutions.
+            TalentXP TECHNOLOGIES is one of the fastest growing IT Services and Solutions Company. We emphasize on acquiring an in-depth knowledge of the customer's context and needs, and design solutions fine-tuned to those needs.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
-          <FeatureCard icon={<ServiceIcon variant="strategic" className="w-6 h-6" />} title="Bespoke Solutions">
-            We don't believe in one-size-fits-all. Our AI-powered solutions are meticulously tailored to your unique business challenges and strategic goals.
+          <FeatureCard icon={<ServiceIcon variant="acquisition" className="w-6 h-6" />} title="Customer Relationship Mgmt">
+            Customer Relationship Management (CRM) provides a business with a well-rounded view of its customer as well as insights into customer behavior.
           </FeatureCard>
-          <FeatureCard icon={<ServiceIcon variant="consulting" className="w-6 h-6" />} title="Expert Team">
-            Our team consists of leading experts in AI, machine learning, and human resources, ensuring you get the best of both worlds to drive innovation.
+          <FeatureCard icon={<ServiceIcon variant="strategic" className="w-6 h-6" />} title="Enterprise Portal & Content Mgmt">
+            Enterprise Content and Portal Management (EPCM) is the strategies, methods and tools used to capture, manage, store, preserve, and deliver information and documents related to organizational processes.
           </FeatureCard>
-          <FeatureCard icon={<ServiceIcon variant="acquisition" className="w-6 h-6" />} title="Ethical & Responsible AI">
-            We are committed to fairness, transparency, and accountability. Our AI is designed to reduce bias and create equitable opportunities for all.
+          <FeatureCard icon={<ServiceIcon variant="genai" className="w-6 h-6" />} title="Enterprise Mobility Solutions">
+             TalentXP provides mobile application development solutions that enable enterprises to realize the true benefits of mobile applications.
           </FeatureCard>
         </div>
       </div>
