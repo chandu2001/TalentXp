@@ -58,10 +58,10 @@ const About = () => {
               <div>
                 <h2 className="text-3xl font-bold text-foreground mb-6 font-headline">A Global Leader in IT Services & Solutions</h2>
                 <p className="text-muted-foreground text-lg leading-relaxed mb-6 font-body">
-                  TalentXP is a global Information Technology (IT) Services and Solutions company. We provide cutting-edge IT Solutions for Enterprises to effectively utilize available resources and efficiently manage operations.
+                  TalentXP is a global Information Technology (IT) Services and Solutions company. We provide cutting-edge IT Solutions for Enterprises to effectively utilize available resources and efficiently manage operations. Our solution-driven approach makes us a strategic partner to Fortune 1000 enterprises.
                 </p>
                 <p className="text-muted-foreground text-lg leading-relaxed font-body">
-                  Our solution-driven approach makes us a strategic partner to Fortune 1000 enterprises. By complementing our comprehensive services with expert technology consultation, we optimize your IT initiatives and enable your organization to respond more quickly to market changes.
+                  By complementing our comprehensive services with expert technology consultation, we optimize your IT initiatives and enable your organization to respond more quickly to market changes.
                 </p>
               </div>
               <div>
@@ -120,9 +120,9 @@ const About = () => {
         <section className="py-20 bg-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-foreground mb-4 font-headline">Our Strategic Approach</h2>
+              <h2 className="text-4xl font-bold text-foreground mb-4 font-headline">Our Mission and Values</h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body">
-                Our strong domain expertise, global work culture, and technical excellence help companies get ahead and be ready for the future.
+                Our mission is to provide innovative, high quality and best-in-class IT Consulting and IT Solutions & Services to our customers, enabling them to achieve their business objectives. Our strong domain expertise, global work culture, and technical excellence help companies get ahead and be ready for the future.
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
