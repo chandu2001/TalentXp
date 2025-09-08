@@ -17,10 +17,11 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-6xl font-extrabold text-foreground font-headline tracking-tight leading-tight"
           >
+            TalentXP TECHNOLOGIES
+            <br />
             <span className="text-primary">
-              Profit Performance
-            </span>{' '}
-            Management
+              Profit Performance Management
+            </span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
