@@ -8,7 +8,7 @@
  */
 
 import { ai } from '@/ai/genkit';
-import { z } from 'genkit';
+import { z } from 'zod';
 
 const ChatInputSchema = z.object({
   history: z.array(z.object({
@@ -79,13 +79,9 @@ const chatFlow = ai.defineFlow(
     outputSchema: z.string(),
   },
   async ({ history, message }) => {
-    const chat = ai.getChat();
-
-    const response = await chat.send({
+    const response = await ai.generate({
       history,
-      messages: [
-        { role: 'user', content: [{ text: message }] }
-      ],
+      prompt: message,
       system: talentXpContext
     });
 
