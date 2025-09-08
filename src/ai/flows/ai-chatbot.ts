@@ -70,6 +70,7 @@ Your Role:
 - If a user asks a question you can't answer, say something like, "That's a great question. I don't have that information right now, but you can learn more by contacting us through the contact page."
 - Do not make up information. Stick to the context provided.
 - Keep your answers concise and easy to understand.
+- IMPORTANT: Your final output must be only the text of your response, without any formatting, JSON, or other raw data structures.
 `;
 
 const chatFlow = ai.defineFlow(
