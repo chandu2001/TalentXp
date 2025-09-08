@@ -99,7 +99,7 @@ const JobCard = ({ job }: { job: typeof jobOpenings[0] }) => (
                                 </ul>
                             </div>
                             <Button asChild className="mt-4">
-                                <Link href="#">Mail your CV to Apply</Link>
+                                <a href={`mailto:careers@talentxp.com?subject=Application for ${encodeURIComponent(job.title)}`}>Mail your CV to Apply</a>
                             </Button>
                         </div>
                     </AccordionContent>
@@ -128,7 +128,7 @@ const JobOpenings = () => {
             ))}
             </div>
             <div className="text-center mt-12">
-                <p className="text-muted-foreground">Freshers please apply only to [email protected]</p>
+                <p className="text-muted-foreground">Freshers please apply only to hr@talentxp.com</p>
             </div>
         </div>
         </div>
