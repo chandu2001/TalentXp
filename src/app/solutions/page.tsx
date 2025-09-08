@@ -10,7 +10,9 @@ export default function SolutionsPage() {
         breadcrumb="Home / Solutions"
         description="We provide a suite of IT solutions designed to address your most complex challenges in business and technology."
       />
-      <Solutions />
+      <AnimatedSection>
+        <Solutions />
+      </AnimatedSection>
     </>
   );
 }

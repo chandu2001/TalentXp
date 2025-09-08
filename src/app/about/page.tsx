@@ -5,9 +5,9 @@ export default function AboutPage() {
   return (
     <>
       <PageHeader
-        title="About Us"
+        title="About TalentXp"
         breadcrumb="Home / About Us"
-        description="Learn more about our mission and the team that drives our innovative IT solutions forward."
+        description="Learn more about our mission, vision, and the core values that drive our innovative IT solutions forward."
       />
       <About />
     </>

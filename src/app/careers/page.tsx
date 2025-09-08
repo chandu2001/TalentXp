@@ -7,7 +7,7 @@ export default function CareersPage() {
       <PageHeader
         title="Join Our Team"
         breadcrumb="Home / Careers"
-        description="We're looking for passionate innovators to join us in shaping the future of AI in talent management. Explore our open roles and discover your next opportunity."
+        description="We're looking for passionate innovators to join us in shaping the future of IT services and solutions. Explore our open roles and discover your next opportunity."
       />
       <JobOpenings />
     </>
