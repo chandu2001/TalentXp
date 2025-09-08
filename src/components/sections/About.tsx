@@ -1,12 +1,11 @@
 import Image from 'next/image';
-import { Award, Zap, Shield, CheckCircle, Linkedin } from 'lucide-react';
+import { Linkedin, Globe, ShieldCheck, Target, Users, Zap } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import AnimatedSection from '../ui/AnimatedSection';
-import { ServiceIcon } from '../ui/ServiceIcon';
 
 const ValueCard = ({ icon, title, children }: { icon: React.ReactNode, title: string, children: React.ReactNode }) => (
-  <div className="bg-card p-6 rounded-lg border transform hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-lg">
+  <div className="bg-card p-6 rounded-lg border transform hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-lg h-full">
     <div className="inline-block bg-primary/10 text-primary p-4 rounded-full mb-4">
       {icon}
     </div>
@@ -15,7 +14,7 @@ const ValueCard = ({ icon, title, children }: { icon: React.ReactNode, title: st
   </div>
 );
 
-const TeamMemberCard = ({ name, title, imageUrl, linkedinUrl }: { name: string, title: string, imageUrl: string, linkedinUrl: string }) => (
+const TeamMemberCard = ({ name, title, imageUrl, linkedinUrl }: { name:string, title:string, imageUrl:string, linkedinUrl:string }) => (
     <div className="text-center bg-card p-6 rounded-lg border transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1">
         <div className="relative inline-block mb-4 group overflow-hidden rounded-full">
             <Image
@@ -37,6 +36,12 @@ const TeamMemberCard = ({ name, title, imageUrl, linkedinUrl }: { name: string, 
     </div>
 );
 
+const industries = [
+    'Banking & Financial Services', 'Insurance & Healthcare', 'Life Sciences', 
+    'Manufacturing', 'Retail, Distribution & Logistics', 'Media & Entertainment', 
+    'Leisure & Travel', 'Communication', 'Energy & Utilities', 'Federal Government'
+];
+
 const About = () => {
   const teamMembers = [
       { name: 'John Doe', title: 'Founder & CEO', imageUrl: 'https://picsum.photos/seed/man-ceo/128/128', linkedinUrl: '#' },
@@ -51,13 +56,12 @@ const About = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
-                <h3 className="text-3xl font-bold text-foreground mb-6 font-headline">Company Overview</h3>
+                <h2 className="text-3xl font-bold text-foreground mb-6 font-headline">A Global Leader in IT Services & Solutions</h2>
                 <p className="text-muted-foreground text-lg leading-relaxed mb-6 font-body">
-                  TalentXP TECHNOLOGIES is one of the fastest growing IT Services and Solutions Company. We emphasize on acquiring an in-depth knowledge of the customer's context and needs, and design solutions fine-tuned to those needs.
+                  TalentXP is a global Information Technology (IT) Services and Solutions company. We provide cutting-edge IT Solutions for Enterprises to effectively utilize available resources and efficiently manage operations.
                 </p>
-                <h4 className="text-2xl font-bold text-foreground mb-4 font-headline">Our Mission</h4>
-                <p className="text-muted-foreground leading-relaxed font-body">
-                  To provide innovative, high quality and best-in-class IT Consulting and IT Solutions & Services to our customers, enabling them to achieve their business objectives.
+                <p className="text-muted-foreground text-lg leading-relaxed font-body">
+                  Our solution-driven approach makes us a strategic partner to Fortune 1000 enterprises. By complementing our comprehensive services with expert technology consultation, we optimize your IT initiatives and enable your organization to respond more quickly to market changes.
                 </p>
               </div>
               <div>
@@ -85,22 +89,28 @@ const About = () => {
       <AnimatedSection>
         <section className="py-20 bg-secondary/50 border-y">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-foreground mb-4 font-headline">Our Values</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body">
-                The principles that guide our work and define our culture.
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <ValueCard icon={<ServiceIcon variant="genai" className="w-7 h-7" />} title="Innovation">
-                We relentlessly pursue cutting-edge solutions that push the boundaries of what's possible in technology.
-              </ValueCard>
-              <ValueCard icon={<ServiceIcon variant="acquisition" className="w-7 h-7" />} title="Customer Centricity">
-                We build collaborative partnerships with our clients, acting as an extension of their team to achieve shared goals.
-              </ValueCard>
-              <ValueCard icon={<ServiceIcon variant="strategic" className="w-7 h-7" />} title="Integrity">
-                We operate with transparency and ethical responsibility, ensuring our solutions are reliable and beneficial.
-              </ValueCard>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 className="text-3xl font-bold text-foreground mb-4 font-headline">Global Reach & Industry Expertise</h2>
+                    <p className="text-muted-foreground mb-8">
+                        Our excellent team of Technology Professionals work with enterprise clients in North America, Latin America, Australia, Europe, Middle East and Asia. We serve a wide range of verticals with specialized, end-to-end IT services.
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                        {industries.map(industry => (
+                            <div key={industry} className="bg-background border border-border rounded-full px-4 py-2 text-sm text-foreground">
+                                {industry}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <div className="relative h-64 lg:h-80">
+                   <Image
+                        src="/world-map.svg"
+                        alt="World map showing global presence"
+                        fill
+                        className="object-contain"
+                    />
+                </div>
             </div>
           </div>
         </section>
@@ -108,6 +118,30 @@ const About = () => {
       
       <AnimatedSection>
         <section className="py-20 bg-background">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-foreground mb-4 font-headline">Our Strategic Approach</h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-body">
+                Our strong domain expertise, global work culture, and technical excellence help companies get ahead and be ready for the future.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <ValueCard icon={<Zap className="w-7 h-7" />} title="Innovation-Driven">
+                At TalentXP, we see Innovation as a clear differentiator. We lead the way in powering next-generation enterprises with Cloud, Mobility, Big Data and Social Media solutions.
+              </ValueCard>
+              <ValueCard icon={<Users className="w-7 h-7" />} title="Client Partnership">
+                We partner with our clients to create transformational value that provides a sustainable competitive advantage. Our customized solutions provide enhanced visibility and project control.
+              </ValueCard>
+              <ValueCard icon={<ShieldCheck className="w-7 h-7" />} title="Solution-Oriented">
+                 Our delivery processes and expertise assist you to solve your business' most complex problems, help you reduce risk, and attain a competitive advantage for long-term success.
+              </ValueCard>
+            </div>
+          </div>
+        </section>
+      </AnimatedSection>
+
+      <AnimatedSection>
+        <section className="py-20 bg-secondary/50 border-y">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-foreground mb-4 font-headline">Meet Our Team</h2>
