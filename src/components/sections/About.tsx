@@ -5,17 +5,6 @@ import { Button } from '../ui/button';
 import AnimatedSection from '../ui/AnimatedSection';
 import { ServiceIcon } from '../ui/ServiceIcon';
 
-
-const StatCard = ({ icon: Icon, number, label }: { icon: React.ElementType, number: string, label: string }) => (
-  <div className="text-center bg-card p-6 rounded-lg border">
-    <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary mx-auto mb-4">
-      <Icon className="w-6 h-6" />
-    </div>
-    <div className="text-3xl font-bold text-foreground mb-2 font-headline">{number}</div>
-    <div className="text-muted-foreground text-sm font-body">{label}</div>
-  </div>
-);
-
 const ValueCard = ({ icon, title, children }: { icon: React.ReactNode, title: string, children: React.ReactNode }) => (
   <div className="bg-card p-6 rounded-lg border transform hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-lg">
     <div className="inline-block bg-primary/10 text-primary p-4 rounded-full mb-4">
@@ -23,20 +12,6 @@ const ValueCard = ({ icon, title, children }: { icon: React.ReactNode, title: st
     </div>
     <h4 className="text-xl font-semibold text-foreground mb-2 font-headline">{title}</h4>
     <p className="text-muted-foreground font-body">{children}</p>
-  </div>
-);
-
-const TimelineItem = ({ year, title, children }: { year: string, title: string, children: React.ReactNode }) => (
-  <div className="relative pl-12">
-     <div className="absolute left-0 top-1 h-full w-0.5 bg-border"></div>
-     <div className="absolute left-[-9px] top-1 flex items-center justify-center w-6 h-6 rounded-full bg-background border-2 border-primary">
-        <div className="w-2 h-2 rounded-full bg-primary"></div>
-    </div>
-    <div className="pt-0.5">
-       <span className="text-sm font-semibold text-primary font-headline mb-1 block">{year}</span>
-      <h4 className="text-xl font-semibold text-foreground font-headline mb-2">{title}</h4>
-      <p className="text-muted-foreground">{children}</p>
-    </div>
   </div>
 );
 
