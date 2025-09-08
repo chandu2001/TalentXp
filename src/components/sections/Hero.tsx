@@ -61,11 +61,11 @@ const Hero = () => {
             </div>
             <div className="overflow-hidden rounded-xl shadow-2xl">
               <Image
-                src="https://picsum.photos/seed/business-performance/1200/600"
-                alt="Business Performance Dashboard"
+                src="https://picsum.photos/seed/tech-network/1200/600"
+                alt="Abstract technology network"
                 width={1200}
                 height={600}
-                data-ai-hint="business performance"
+                data-ai-hint="technology network"
                 className="relative w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
