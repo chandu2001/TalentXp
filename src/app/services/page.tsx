@@ -24,11 +24,11 @@ const AzureSection = () => (
           <ul className="space-y-4">
             <li className="flex items-start space-x-3">
               <ServiceIcon variant="analytics" className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-              <p className="text-muted-foreground"><strong className="text-foreground">Control Costs:</strong> Eliminate up-front costs for massively scalable computing infrastructure.</p>
+              <p className="text-muted-foreground"><strong className="text-foreground">Control Costs:</strong> Windows Azure solutions are highly scalable. Eliminate up-front costs for massively scalable computing infrastructure.</p>
             </li>
             <li className="flex items-start space-x-3">
               <ServiceIcon variant="consulting" className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-              <p className="text-muted-foreground"><strong className="text-foreground">Scale and Grow:</strong> Add compute power as your business grows or demand spikes, ensuring agility and responsiveness.</p>
+              <p className="text-muted-foreground"><strong className="text-foreground">Accommodate Demands:</strong> TalentXP Windows Azure solutions are agile. Simplified application development gives you the ability to rapidly scale up or down on demand.</p>
             </li>
              <li className="flex items-start space-x-3">
               <ServiceIcon variant="genai" className="w-6 h-6 text-primary flex-shrink-0 mt-1" />

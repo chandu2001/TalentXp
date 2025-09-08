@@ -22,7 +22,7 @@ const Services = () => {
       title: "Windows Azure",
       description: "A Microsoft Cloud Computing Platform offering to help its customers realize the benefits of cloud computing. Azure provides a range of functionality to build powerful applications.",
     },
-    {
+     {
       icon: <ServiceIcon variant="acquisition" className="w-6 h-6" />,
       title: "IT Infrastructure & Mgnt",
       description: "IT Organizations are increasingly being asked to provide improved levels of Service to the business.",
