@@ -61,7 +61,7 @@ const Hero = () => {
             </div>
             <div className="overflow-hidden rounded-xl shadow-2xl">
               <Image
-                src="https://static.vecteezy.com/system/resources/previews/038/813/821/large_2x/ai-generated-blue-technology-network-for-an-abstract-background-photo.jpg"
+                src="https://picsum.photos/seed/tech-abstract/1200/600"
                 alt="Blue technology network abstract background"
                 width={1200}
                 height={600}
