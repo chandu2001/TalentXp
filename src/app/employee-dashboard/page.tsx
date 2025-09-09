@@ -10,13 +10,16 @@ import {
   CardFooter,
 } from '@/components/ui/card';
 import {
-  BarChart,
   Briefcase,
   CheckCircle,
   LogOut,
   PlusCircle,
   Settings,
   Target,
+  FileText,
+  MessageSquare,
+  User,
+  Star,
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
@@ -52,6 +55,8 @@ import { format } from 'date-fns';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { siteImages } from '@/lib/images';
 
 const chartData = [
   { month: 'January', progress: 65 },
@@ -90,35 +95,58 @@ const StatCard = ({
 );
 
 interface Activity {
+  icon: React.ElementType;
   title: string;
   description: string;
 }
 
 const initialActivities: Activity[] = [
   {
+    icon: Target,
     title: "Project Alpha Milestone",
     description: "You completed the 'Initial Scoping' phase. - 2 hours ago"
   },
   {
+    icon: FileText,
     title: "Performance Review",
     description: "Your self-assessment has been submitted. - 1 day ago"
   },
   {
+    icon: Star,
     title: "New Training Module",
     description: "You've been assigned 'Advanced AI Ethics'. - 3 days ago"
   }
 ];
 
+const teamUpdates = [
+    {
+        author: 'Jane Smith',
+        avatar: siteImages.teamMember2.src,
+        hint: siteImages.teamMember2.hint,
+        update: 'Hey team, just a reminder that the Q3 planning documents are due by EOD Friday. Let\'s get it done!',
+        timestamp: '2h ago'
+    },
+    {
+        author: 'John Doe',
+        avatar: siteImages.teamMember1.src,
+        hint: siteImages.teamMember1.hint,
+        update: 'Great work on the Project Alpha launch! The client is thrilled with the results. Well done everyone.',
+        timestamp: '1d ago'
+    }
+]
+
 const ActivityItem = ({
+  icon: Icon,
   title,
   description,
 }: {
+  icon: React.ElementType;
   title: string;
   description: string;
 }) => (
   <div className="flex items-start space-x-4">
-    <div className="flex-shrink-0 pt-1">
-      <CheckCircle className="h-5 w-5 text-green-500" />
+    <div className="flex-shrink-0 pt-1 text-primary">
+      <Icon className="h-5 w-5" />
     </div>
     <div>
       <h4 className="font-semibold text-foreground">{title}</h4>
@@ -139,6 +167,7 @@ const NewTaskForm = ({ onTaskAdd }: { onTaskAdd: (task: Activity) => void }) => 
 
   const onSubmit = (data: { taskTitle: string }) => {
     onTaskAdd({
+      icon: CheckCircle,
       title: data.taskTitle,
       description: `You added a new task. - Just now`,
     });
@@ -312,12 +341,24 @@ export default function EmployeeDashboardPage() {
               </Card>
               <Card>
                 <CardHeader>
-                  <CardTitle className="font-headline">Team Updates</CardTitle>
+                  <CardTitle className="font-headline flex items-center">
+                    <MessageSquare className="w-5 h-5 mr-2 text-primary" />
+                    Team Updates
+                  </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    No new updates from the team at the moment. Check back later!
-                  </p>
+                <CardContent className="space-y-4">
+                  {teamUpdates.map((update, index) => (
+                      <div key={index} className="flex items-start space-x-3">
+                        <Avatar className="w-10 h-10 border">
+                          <AvatarImage src={update.avatar} alt={update.author} data-ai-hint={update.hint} />
+                          <AvatarFallback><User /></AvatarFallback>
+                        </Avatar>
+                        <div>
+                          <p className="text-sm font-semibold text-foreground">{update.author} <span className="text-xs text-muted-foreground font-normal ml-1">{update.timestamp}</span></p>
+                          <p className="text-sm text-muted-foreground">{update.update}</p>
+                        </div>
+                      </div>
+                  ))}
                 </CardContent>
               </Card>
             </div>
@@ -333,6 +374,7 @@ export default function EmployeeDashboardPage() {
                 {activities.map((activity, index) => (
                   <ActivityItem
                     key={index}
+                    icon={activity.icon}
                     title={activity.title}
                     description={activity.description}
                   />
