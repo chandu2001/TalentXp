@@ -7,6 +7,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
+  CardFooter,
 } from '@/components/ui/card';
 import {
   BarChart,
@@ -20,12 +21,24 @@ import {
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import toast from 'react-hot-toast';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from '@/components/ui/chart';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogFooter,
+  DialogClose,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Bar,
   CartesianGrid,
@@ -36,6 +49,9 @@ import {
 } from 'recharts';
 import type { ChartConfig } from '@/components/ui/chart';
 import { format } from 'date-fns';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
 
 const chartData = [
   { month: 'January', progress: 65 },
@@ -73,6 +89,26 @@ const StatCard = ({
   </Card>
 );
 
+interface Activity {
+  title: string;
+  description: string;
+}
+
+const initialActivities: Activity[] = [
+  {
+    title: "Project Alpha Milestone",
+    description: "You completed the 'Initial Scoping' phase. - 2 hours ago"
+  },
+  {
+    title: "Performance Review",
+    description: "Your self-assessment has been submitted. - 1 day ago"
+  },
+  {
+    title: "New Training Module",
+    description: "You've been assigned 'Advanced AI Ethics'. - 3 days ago"
+  }
+];
+
 const ActivityItem = ({
   title,
   description,
@@ -91,8 +127,85 @@ const ActivityItem = ({
   </div>
 );
 
+const NewTaskForm = ({ onTaskAdd }: { onTaskAdd: (task: Activity) => void }) => {
+  const [open, setOpen] = useState(false);
+  const taskSchema = z.object({
+    taskTitle: z.string().min(1, 'Task title is required.'),
+  });
+  
+  const { register, handleSubmit, reset, formState: { errors } } = useForm({
+    resolver: zodResolver(taskSchema),
+  });
+
+  const onSubmit = (data: { taskTitle: string }) => {
+    onTaskAdd({
+      title: data.taskTitle,
+      description: `You added a new task. - Just now`,
+    });
+    toast.success('New task added!');
+    reset();
+    setOpen(false);
+  };
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button variant="outline"><PlusCircle className="mr-2 h-4 w-4" /> New Task</Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Add a New Task</DialogTitle>
+          <DialogDescription>
+            Enter the details for your new task below. It will be added to your recent activity.
+          </DialogDescription>
+        </DialogHeader>
+        <form onSubmit={handleSubmit(onSubmit)} id="new-task-form" className="grid gap-4 py-4">
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="taskTitle" className="text-right">
+              Task
+            </Label>
+            <div className="col-span-3">
+              <Input id="taskTitle" {...register("taskTitle")} placeholder="e.g. Complete project proposal" />
+              {errors.taskTitle && <p className="text-destructive text-sm mt-1">{`${errors.taskTitle.message}`}</p>}
+            </div>
+          </div>
+        </form>
+        <DialogFooter>
+          <DialogClose asChild>
+            <Button type="button" variant="secondary">Cancel</Button>
+          </DialogClose>
+          <Button type="submit" form="new-task-form">Add Task</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+};
+
+
+const SettingsDialog = () => (
+  <Dialog>
+    <DialogTrigger asChild>
+      <Button variant="outline"><Settings className="mr-2 h-4 w-4" /> Settings</Button>
+    </DialogTrigger>
+    <DialogContent>
+      <DialogHeader>
+        <DialogTitle>Settings</DialogTitle>
+        <DialogDescription>
+          This is a placeholder for your settings. Functionality can be added here in the future.
+        </DialogDescription>
+      </DialogHeader>
+    </DialogContent>
+  </Dialog>
+);
+
+
 export default function EmployeeDashboardPage() {
   const router = useRouter();
+  const [activities, setActivities] = useState<Activity[]>(initialActivities);
+  
+  const handleAddTask = (task: Activity) => {
+    setActivities(prev => [task, ...prev]);
+  };
 
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
@@ -193,8 +306,8 @@ export default function EmployeeDashboardPage() {
                   <CardTitle className="font-headline">Quick Actions</CardTitle>
                 </CardHeader>
                 <CardContent className="grid grid-cols-2 gap-4">
-                  <Button variant="outline"><PlusCircle className="mr-2 h-4 w-4" /> New Task</Button>
-                  <Button variant="outline"><Settings className="mr-2 h-4 w-4" /> Settings</Button>
+                  <NewTaskForm onTaskAdd={handleAddTask} />
+                  <SettingsDialog />
                 </CardContent>
               </Card>
               <Card>
@@ -217,18 +330,13 @@ export default function EmployeeDashboardPage() {
                 <CardDescription>A log of your recent accomplishments and assigned tasks.</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
-                <ActivityItem
-                  title="Project Alpha Milestone"
-                  description="You completed the 'Initial Scoping' phase. - 2 hours ago"
-                />
-                <ActivityItem
-                  title="Performance Review"
-                  description="Your self-assessment has been submitted. - 1 day ago"
-                />
-                <ActivityItem
-                  title="New Training Module"
-                  description="You've been assigned 'Advanced AI Ethics'. - 3 days ago"
-                />
+                {activities.map((activity, index) => (
+                  <ActivityItem
+                    key={index}
+                    title={activity.title}
+                    description={activity.description}
+                  />
+                ))}
               </CardContent>
             </Card>
           </section>
@@ -237,5 +345,3 @@ export default function EmployeeDashboardPage() {
     </div>
   );
 }
-
-    
