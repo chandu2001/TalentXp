@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { siteImages } from '@/lib/images';
 
 const FeaturedClient = () => {
   return (
@@ -24,11 +25,11 @@ const FeaturedClient = () => {
           </div>
           <div className="order-1 lg:order-2 group overflow-hidden rounded-lg shadow-xl">
             <Image
-              src="https://picsum.photos/seed/corporate-success/600/500"
+              src={siteImages.featuredClient.src}
               alt="Team discussing project on a whiteboard"
-              width={600}
-              height={500}
-              data-ai-hint="corporate success"
+              width={siteImages.featuredClient.width}
+              height={siteImages.featuredClient.height}
+              data-ai-hint={siteImages.featuredClient.hint}
               className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </div>

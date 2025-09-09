@@ -3,6 +3,7 @@ import { Linkedin, Globe, ShieldCheck, Target, Users, Zap } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import AnimatedSection from '../ui/AnimatedSection';
+import { siteImages } from '@/lib/images';
 
 const ValueCard = ({ icon, title, children }: { icon: React.ReactNode, title: string, children: React.ReactNode }) => (
   <div className="bg-card p-6 rounded-lg border transform hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-lg h-full">
@@ -14,15 +15,15 @@ const ValueCard = ({ icon, title, children }: { icon: React.ReactNode, title: st
   </div>
 );
 
-const TeamMemberCard = ({ name, title, imageUrl, linkedinUrl }: { name:string, title:string, imageUrl:string, linkedinUrl:string }) => (
+const TeamMemberCard = ({ name, title, imageUrl, linkedinUrl, width, height, hint }: { name:string, title:string, imageUrl:string, linkedinUrl:string, width:number, height:number, hint:string }) => (
     <div className="text-center bg-card p-6 rounded-lg border transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1">
         <div className="relative inline-block mb-4 group overflow-hidden rounded-full">
             <Image
                 src={imageUrl}
                 alt={name}
-                width={128}
-                height={128}
-                data-ai-hint="person photo"
+                width={width}
+                height={height}
+                data-ai-hint={hint}
                 className="rounded-full w-32 h-32 object-cover transition-transform duration-300 group-hover:scale-105"
             />
         </div>
@@ -44,9 +45,9 @@ const industries = [
 
 const About = () => {
   const teamMembers = [
-      { name: 'John Doe', title: 'Founder & CEO', imageUrl: 'https://picsum.photos/seed/man-ceo/128/128', linkedinUrl: '#' },
-      { name: 'Jane Smith', title: 'Chief Technology Officer', imageUrl: 'https://picsum.photos/seed/woman-cto/128/128', linkedinUrl: '#' },
-      { name: 'Peter Jones', title: 'Head of Solutions', imageUrl: 'https://picsum.photos/seed/man-solutions/128/128', linkedinUrl: '#' },
+      { name: 'John Doe', title: 'Founder & CEO', image: siteImages.teamMember1, linkedinUrl: '#' },
+      { name: 'Jane Smith', title: 'Chief Technology Officer', image: siteImages.teamMember2, linkedinUrl: '#' },
+      { name: 'Peter Jones', title: 'Head of Solutions', image: siteImages.teamMember3, linkedinUrl: '#' },
   ];
 
   return (
@@ -71,11 +72,11 @@ const About = () => {
                   </div>
                   <div className="overflow-hidden rounded-xl shadow-lg">
                     <Image
-                        src="https://picsum.photos/seed/corporate-mission/500/400"
+                        src={siteImages.aboutTeamCollaboration.src}
                         alt="Team collaborating on a project"
-                        width={500}
-                        height={400}
-                        data-ai-hint="team expertise diversity"
+                        width={siteImages.aboutTeamCollaboration.width}
+                        height={siteImages.aboutTeamCollaboration.height}
+                        data-ai-hint={siteImages.aboutTeamCollaboration.hint}
                         className="relative w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
@@ -151,7 +152,16 @@ const About = () => {
             </div>
             <div className="grid md:grid-cols-3 gap-8">
                 {teamMembers.map((member) => (
-                    <TeamMemberCard key={member.name} {...member} />
+                    <TeamMemberCard 
+                        key={member.name} 
+                        name={member.name}
+                        title={member.title}
+                        linkedinUrl={member.linkedinUrl}
+                        imageUrl={member.image.src}
+                        width={member.image.width}
+                        height={member.image.height}
+                        hint={member.image.hint}
+                    />
                 ))}
             </div>
           </div>

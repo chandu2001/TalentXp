@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { useState } from 'react';
 import { getCaseStudySummary } from '@/app/actions';
+import { siteImages } from '@/lib/images';
 
 const caseStudiesData = [
   {
@@ -17,7 +18,7 @@ const caseStudiesData = [
     challenge: "A Fortune 500 tech giant was struggling with a legacy IT infrastructure that was slow and inefficient, hindering their ability to innovate and respond to market changes.",
     solution: "We deployed a comprehensive IT modernization strategy, including migrating their systems to Windows Azure, implementing a new SharePoint 2010 portal, and developing custom .NET applications.",
     results: "Reduced operational costs by 40%. Increased development velocity by 75%. Improved system reliability and security across the board.",
-    image: { src: "https://picsum.photos/seed/business-tech/800/600", hint: "corporate office" },
+    image: siteImages.caseStudy1,
   },
   {
     id: 2,
@@ -27,7 +28,7 @@ const caseStudiesData = [
     challenge: "A rapidly growing fintech startup needed to develop a secure and scalable iPhone application to serve its growing customer base, but lacked in-house mobile development expertise.",
     solution: "Our mobile development team designed and built a native iPhone application from the ground up, using Xcode and Cocoa Touch, with a focus on usability and performance.",
     results: "Successfully launched the app to the App Store, achieving 100,000 downloads in the first three months. The app received a 4.8-star rating from users.",
-    image: { src: "https://picsum.photos/seed/startup-tech/800/600", hint: "startup collaboration" },
+    image: siteImages.caseStudy2,
   },
   {
     id: 3,
@@ -37,7 +38,7 @@ const caseStudiesData = [
     challenge: "An international retail company's online platform was outdated, leading to slow performance, a poor user experience, and declining sales.",
     solution: "We re-architected their e-commerce platform using modern microservices and a headless CMS, integrated with a new payment gateway and logistics API.",
     results: "Page load times improved by 60%, mobile conversion rates increased by 35%, and online revenue grew by 25% within the first six months.",
-    image: { src: "https://picsum.photos/seed/retail-success/800/600", hint: "retail online" },
+    image: siteImages.caseStudy3,
   },
   {
     id: 4,
@@ -47,7 +48,7 @@ const caseStudiesData = [
     challenge: "A major healthcare provider needed to migrate its on-premise data centers to a secure, HIPAA-compliant cloud environment to improve scalability and data accessibility for practitioners.",
     solution: "Our cloud engineering team executed a phased migration to a hybrid cloud solution, implementing robust security controls, data encryption, and a disaster recovery plan.",
     results: "Achieved 99.99% uptime, reduced infrastructure costs by 30%, and enabled secure, real-time access to patient data for authorized personnel, improving patient care.",
-    image: { src: "https://picsum.photos/seed/healthcare-tech/800/600", hint: "healthcare technology" },
+    image: siteImages.caseStudy4,
   },
 ];
 
@@ -70,8 +71,8 @@ const CaseStudyCard = ({ study, index }: { study: typeof caseStudiesData[0], ind
          <Image
           src={study.image.src}
           alt={study.title}
-          width={800}
-          height={600}
+          width={study.image.width}
+          height={study.image.height}
           data-ai-hint={study.image.hint}
           className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
         />

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ServiceIcon } from '@/components/ui/ServiceIcon';
 import AnimatedSection from '../ui/AnimatedSection';
+import { siteImages } from '@/lib/images';
 
 const SolutionFeature = ({
   icon,
@@ -54,11 +55,11 @@ const Solutions = () => {
               </div>
                <div className="group overflow-hidden rounded-lg shadow-xl">
                 <Image
-                  src="https://picsum.photos/seed/enterprise-solution/600/500"
+                  src={siteImages.enterpriseSolution.src}
                   alt="Enterprise portal management"
-                  width={600}
-                  height={500}
-                  data-ai-hint="enterprise tech"
+                  width={siteImages.enterpriseSolution.width}
+                  height={siteImages.enterpriseSolution.height}
+                  data-ai-hint={siteImages.enterpriseSolution.hint}
                   className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
@@ -73,11 +74,11 @@ const Solutions = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
                <div className="group overflow-hidden rounded-lg shadow-xl md:order-last">
                 <Image
-                  src="https://picsum.photos/seed/mobile-dev/600/500"
+                  src={siteImages.mobileSolution.src}
                   alt="Mobile application development"
-                  width={600}
-                  height={500}
-                  data-ai-hint="mobile development"
+                  width={siteImages.mobileSolution.width}
+                  height={siteImages.mobileSolution.height}
+                  data-ai-hint={siteImages.mobileSolution.hint}
                   className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>

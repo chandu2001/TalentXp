@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { siteImages } from '@/lib/images';
 
 const Hero = () => {
   return (
@@ -61,11 +62,11 @@ const Hero = () => {
             </div>
             <div className="overflow-hidden rounded-xl shadow-2xl">
               <Image
-                src="https://picsum.photos/seed/tech-abstract/1200/600"
+                src={siteImages.heroImage.src}
                 alt="Blue technology network abstract background"
-                width={1200}
-                height={600}
-                data-ai-hint="technology network"
+                width={siteImages.heroImage.width}
+                height={siteImages.heroImage.height}
+                data-ai-hint={siteImages.heroImage.hint}
                 className="relative w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
                 priority
               />

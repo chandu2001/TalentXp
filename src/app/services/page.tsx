@@ -6,6 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { siteImages } from '@/lib/images';
 
 const OurProcess = () => {
     const processSteps = [
@@ -55,11 +56,11 @@ const AnalyticsCTA = () => (
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div className="group overflow-hidden rounded-lg shadow-xl">
           <Image
-            src="https://picsum.photos/seed/analytics/600/500"
+            src={siteImages.analyticsCTA.src}
             alt="Data Analytics Dashboard"
-            width={600}
-            height={500}
-            data-ai-hint="data analytics"
+            width={siteImages.analyticsCTA.width}
+            height={siteImages.analyticsCTA.height}
+            data-ai-hint={siteImages.analyticsCTA.hint}
             className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
           />
         </div>
