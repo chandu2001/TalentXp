@@ -1,232 +1,20 @@
 
 'use client';
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-  CardFooter,
-} from '@/components/ui/card';
-import {
-  Briefcase,
-  CheckCircle,
-  LogOut,
-  PlusCircle,
-  Settings,
-  Target,
-  FileText,
-  MessageSquare,
-  User,
-  Star,
-} from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import toast from 'react-hot-toast';
 import { useEffect, useState } from 'react';
-import {
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-} from '@/components/ui/chart';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-  DialogFooter,
-  DialogClose,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Bar,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-  ResponsiveContainer,
-  BarChart as RechartsBarChart,
-} from 'recharts';
-import type { ChartConfig } from '@/components/ui/chart';
+import { useRouter } from 'next/navigation';
 import { format } from 'date-fns';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { siteImages } from '@/lib/images';
+import toast from 'react-hot-toast';
+import { LogOut } from 'lucide-react';
+import type { Activity } from '@/lib/types';
 
-const chartData = [
-  { month: 'January', progress: 65 },
-  { month: 'February', progress: 72 },
-  { month: 'March', progress: 85 },
-];
-
-const chartConfig = {
-  progress: {
-    label: 'Progress',
-    color: 'hsl(var(--primary))',
-  },
-} satisfies ChartConfig;
-
-const StatCard = ({
-  icon: Icon,
-  title,
-  value,
-  description,
-}: {
-  icon: React.ElementType;
-  title: string;
-  value: string;
-  description: string;
-}) => (
-  <Card>
-    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-      <CardTitle className="text-sm font-medium">{title}</CardTitle>
-      <Icon className="h-4 w-4 text-muted-foreground" />
-    </CardHeader>
-    <CardContent>
-      <div className="text-2xl font-bold">{value}</div>
-      <p className="text-xs text-muted-foreground">{description}</p>
-    </CardContent>
-  </Card>
-);
-
-interface Activity {
-  icon: React.ElementType;
-  title: string;
-  description: string;
-}
-
-const initialActivities: Activity[] = [
-  {
-    icon: Target,
-    title: "Project Alpha Milestone",
-    description: "You completed the 'Initial Scoping' phase. - 2 hours ago"
-  },
-  {
-    icon: FileText,
-    title: "Performance Review",
-    description: "Your self-assessment has been submitted. - 1 day ago"
-  },
-  {
-    icon: Star,
-    title: "New Training Module",
-    description: "You've been assigned 'Advanced AI Ethics'. - 3 days ago"
-  }
-];
-
-const teamUpdates = [
-    {
-        author: 'Jane Smith',
-        avatar: siteImages.teamMember2.src,
-        hint: siteImages.teamMember2.hint,
-        update: 'Hey team, just a reminder that the Q3 planning documents are due by EOD Friday. Let\'s get it done!',
-        timestamp: '2h ago'
-    },
-    {
-        author: 'John Doe',
-        avatar: siteImages.teamMember1.src,
-        hint: siteImages.teamMember1.hint,
-        update: 'Great work on the Project Alpha launch! The client is thrilled with the results. Well done everyone.',
-        timestamp: '1d ago'
-    }
-]
-
-const ActivityItem = ({
-  icon: Icon,
-  title,
-  description,
-}: {
-  icon: React.ElementType;
-  title: string;
-  description: string;
-}) => (
-  <div className="flex items-start space-x-4">
-    <div className="flex-shrink-0 pt-1 text-primary">
-      <Icon className="h-5 w-5" />
-    </div>
-    <div>
-      <h4 className="font-semibold text-foreground">{title}</h4>
-      <p className="text-sm text-muted-foreground">{description}</p>
-    </div>
-  </div>
-);
-
-const NewTaskForm = ({ onTaskAdd }: { onTaskAdd: (task: Activity) => void }) => {
-  const [open, setOpen] = useState(false);
-  const taskSchema = z.object({
-    taskTitle: z.string().min(1, 'Task title is required.'),
-  });
-  
-  const { register, handleSubmit, reset, formState: { errors } } = useForm({
-    resolver: zodResolver(taskSchema),
-  });
-
-  const onSubmit = (data: { taskTitle: string }) => {
-    onTaskAdd({
-      icon: CheckCircle,
-      title: data.taskTitle,
-      description: `You added a new task. - Just now`,
-    });
-    toast.success('New task added!');
-    reset();
-    setOpen(false);
-  };
-
-  return (
-    <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button variant="outline"><PlusCircle className="mr-2 h-4 w-4" /> New Task</Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle>Add a New Task</DialogTitle>
-          <DialogDescription>
-            Enter the details for your new task below. It will be added to your recent activity.
-          </DialogDescription>
-        </DialogHeader>
-        <form onSubmit={handleSubmit(onSubmit)} id="new-task-form" className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="taskTitle" className="text-right">
-              Task
-            </Label>
-            <div className="col-span-3">
-              <Input id="taskTitle" {...register("taskTitle")} placeholder="e.g. Complete project proposal" />
-              {errors.taskTitle && <p className="text-destructive text-sm mt-1">{`${errors.taskTitle.message}`}</p>}
-            </div>
-          </div>
-        </form>
-        <DialogFooter>
-          <DialogClose asChild>
-            <Button type="button" variant="secondary">Cancel</Button>
-          </DialogClose>
-          <Button type="submit" form="new-task-form">Add Task</Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
-  );
-};
-
-
-const SettingsDialog = () => (
-  <Dialog>
-    <DialogTrigger asChild>
-      <Button variant="outline"><Settings className="mr-2 h-4 w-4" /> Settings</Button>
-    </DialogTrigger>
-    <DialogContent>
-      <DialogHeader>
-        <DialogTitle>Settings</DialogTitle>
-        <DialogDescription>
-          This is a placeholder for your settings. Functionality can be added here in the future.
-        </DialogDescription>
-      </DialogHeader>
-    </DialogContent>
-  </Dialog>
-);
-
+import { Button } from '@/components/ui/button';
+import DashboardStats from '@/components/dashboard/DashboardStats';
+import DashboardChart from '@/components/dashboard/DashboardChart';
+import QuickActions from '@/components/dashboard/QuickActions';
+import TeamUpdates from '@/components/dashboard/TeamUpdates';
+import RecentActivity from '@/components/dashboard/RecentActivity';
+import { initialActivities } from '@/lib/data';
 
 export default function EmployeeDashboardPage() {
   const router = useRouter();
@@ -270,118 +58,19 @@ export default function EmployeeDashboardPage() {
         </header>
 
         <main className="space-y-12">
-          <section>
-            <div className="grid gap-6 md:grid-cols-3">
-              <StatCard
-                icon={Target}
-                title="Quarterly Goals Met"
-                value="75%"
-                description="On track to meet Q2 targets"
-              />
-              <StatCard
-                icon={Briefcase}
-                title="Active Projects"
-                value="4"
-                description="2 projects in final review"
-              />
-              <StatCard
-                icon={CheckCircle}
-                title="Tasks Completed (Q2)"
-                value="128"
-                description="+15% from last quarter"
-              />
-            </div>
-          </section>
+          <DashboardStats />
           
           <section className="grid md:grid-cols-5 gap-8">
             <div className="md:col-span-3">
-              <Card className="h-full">
-                <CardHeader>
-                  <CardTitle className="font-headline">Quarterly Goal Progress</CardTitle>
-                  <CardDescription>
-                    A visual summary of your goal completion this quarter.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ChartContainer config={chartConfig} className="h-64">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <RechartsBarChart data={chartData} margin={{ top: 20, right: 20, left: -10, bottom: 0 }}>
-                        <CartesianGrid vertical={false} strokeDasharray="3 3" />
-                        <XAxis
-                          dataKey="month"
-                          tickLine={false}
-                          axisLine={false}
-                          tickMargin={8}
-                          />
-                        <YAxis />
-                        <ChartTooltip
-                          cursor={false}
-                          content={<ChartTooltipContent />}
-                          />
-                        <Bar
-                          dataKey="progress"
-                          fill="var(--color-progress)"
-                          radius={8}
-                          />
-                      </RechartsBarChart>
-                    </ResponsiveContainer>
-                  </ChartContainer>
-                </CardContent>
-              </Card>
+              <DashboardChart />
             </div>
             <div className="md:col-span-2 space-y-8">
-               <Card>
-                <CardHeader>
-                  <CardTitle className="font-headline">Quick Actions</CardTitle>
-                </CardHeader>
-                <CardContent className="grid grid-cols-2 gap-4">
-                  <NewTaskForm onTaskAdd={handleAddTask} />
-                  <SettingsDialog />
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="font-headline flex items-center">
-                    <MessageSquare className="w-5 h-5 mr-2 text-primary" />
-                    Team Updates
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {teamUpdates.map((update, index) => (
-                      <div key={index} className="flex items-start space-x-3">
-                        <Avatar className="w-10 h-10 border">
-                          <AvatarImage src={update.avatar} alt={update.author} data-ai-hint={update.hint} />
-                          <AvatarFallback><User /></AvatarFallback>
-                        </Avatar>
-                        <div>
-                          <p className="text-sm font-semibold text-foreground">{update.author} <span className="text-xs text-muted-foreground font-normal ml-1">{update.timestamp}</span></p>
-                          <p className="text-sm text-muted-foreground">{update.update}</p>
-                        </div>
-                      </div>
-                  ))}
-                </CardContent>
-              </Card>
+              <QuickActions onTaskAdd={handleAddTask} />
+              <TeamUpdates />
             </div>
           </section>
 
-          <section>
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-headline">Recent Activity</CardTitle>
-                <CardDescription>A log of your recent accomplishments and assigned tasks.</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                {activities.map((activity, index) => (
-                  <ActivityItem
-                    key={index}
-                    icon={activity.icon}
-                    title={activity.title}
-                    description={activity.description}
-                  />
-                ))}
-              </CardContent>
-            </Card>
-          </section>
+          <RecentActivity activities={activities} />
         </main>
       </div>
     </div>
